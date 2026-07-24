@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { ResetScrollOnReload } from "@/components/motion/ResetScrollOnReload";
 import { Benefits } from "@/components/sections/Benefits";
 import { Contact } from "@/components/sections/Contact";
 import { ConversionSimulator } from "@/components/sections/ConversionSimulator";
@@ -12,6 +13,7 @@ import { Services } from "@/components/sections/Services";
 export default function Home() {
   return (
     <>
+      <ResetScrollOnReload />
       <Navbar />
       <main>
         <Hero />

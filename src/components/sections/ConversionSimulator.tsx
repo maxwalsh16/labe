@@ -232,11 +232,15 @@ export function ConversionSimulator() {
                         )}
                       </div>
                     </div>
-                    <div className="min-h-20 border-t border-white/10 pt-4">
+                    <div className="min-h-24 border-t border-white/10 pt-4 sm:min-h-20">
                       <strong className="block text-sm font-black sm:text-base">
                         {item.name}
                       </strong>
-                      <span className="mt-1 hidden text-xs leading-5 text-slate-400 sm:block">
+                      <span
+                        className={`mt-1 text-[0.65rem] leading-4 text-slate-400 sm:block sm:text-xs sm:leading-5 ${
+                          index === 2 ? "block" : "hidden"
+                        }`}
+                      >
                         {item.label}
                       </span>
                     </div>

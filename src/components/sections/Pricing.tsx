@@ -82,13 +82,13 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-7xl items-stretch gap-6 lg:grid-cols-2">
+        <div className="mx-auto mt-16 grid max-w-7xl min-w-0 grid-cols-[minmax(0,1fr)] items-stretch gap-6 lg:grid-cols-2">
           <article
             id="launch-plan"
-            className="pricing-card scroll-mt-28 flex flex-col rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-900/[0.05] sm:p-10"
+            className="pricing-card scroll-mt-28 flex min-w-0 flex-col rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/[0.05] sm:p-10"
           >
-            <div className="flex items-start justify-between gap-4">
-              <div>
+            <div className="flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:justify-between">
+              <div className="min-w-0">
                 <p className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
                   Labe Launch
                 </p>
@@ -103,7 +103,7 @@ export function Pricing() {
 
             <div className="mt-9 border-b border-slate-200 pb-9">
               <div className="flex items-end gap-2">
-                <span className="text-6xl font-black tracking-[-0.06em] text-slate-950">
+                <span className="text-5xl font-black tracking-[-0.06em] text-slate-950 min-[360px]:text-6xl">
                   $999
                 </span>
                 <span className="mb-2 text-sm font-bold text-slate-500">
@@ -126,7 +126,7 @@ export function Pricing() {
             </ul>
 
             <div className="mt-auto flex min-h-[12.5rem] flex-col justify-end pt-12">
-              <div className="[&>a]:w-full">
+              <div className="[&>a]:w-full [&>a]:min-w-0 [&>a]:whitespace-normal [&>a]:px-4 [&>a]:text-center [&>a]:text-sm sm:[&>a]:px-7 sm:[&>a]:text-base">
                 <ButtonLink href="/start?plan=launch" secondary size="large">
                   Pay now & reserve priority
                 </ButtonLink>
@@ -137,14 +137,14 @@ export function Pricing() {
 
           <article
             id="growth-plan"
-            className="pricing-card growth-card scroll-mt-28 relative flex flex-col overflow-hidden rounded-[2rem] border border-blue-500 bg-slate-950 p-7 text-white shadow-2xl shadow-blue-900/20 sm:p-10"
+            className="pricing-card growth-card scroll-mt-28 relative flex min-w-0 flex-col overflow-hidden rounded-[2rem] border border-blue-500 bg-slate-950 p-6 text-white shadow-2xl shadow-blue-900/20 sm:p-10"
           >
             <div
               aria-hidden="true"
               className="absolute -right-28 -top-28 h-80 w-80 rounded-full bg-blue-600/35 blur-3xl"
             />
-            <div className="relative flex items-start justify-between gap-4">
-              <div>
+            <div className="relative flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:justify-between">
+              <div className="min-w-0">
                 <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-400">
                   Labe Growth
                 </p>
@@ -159,7 +159,7 @@ export function Pricing() {
 
             <div className="relative mt-9 border-b border-white/10 pb-9">
               <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
-                <span className="text-6xl font-black tracking-[-0.06em]">
+                <span className="text-5xl font-black tracking-[-0.06em] min-[360px]:text-6xl">
                   $1,999
                 </span>
                 <span className="mb-2 text-sm font-bold text-slate-400">
@@ -195,7 +195,7 @@ export function Pricing() {
             <div className="relative mt-auto flex min-h-[12.5rem] flex-col justify-end pt-12">
               <a
                 href="/start?plan=growth"
-                className="button-shine inline-flex h-14 w-full items-center justify-center rounded-full bg-blue-600 px-7 text-base font-black text-white shadow-xl shadow-blue-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+                className="button-shine inline-flex min-h-14 w-full min-w-0 items-center justify-center rounded-full bg-blue-600 px-4 py-3 text-center text-sm font-black leading-tight text-white shadow-xl shadow-blue-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400 sm:px-7 sm:text-base"
               >
                 Pay now & reserve priority
                 <span aria-hidden="true" className="ml-2">

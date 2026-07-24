@@ -97,7 +97,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
@@ -126,7 +126,7 @@ function ServiceCard({
   return (
     <a
       href={href}
-      className={`service-card group relative min-h-72 overflow-hidden rounded-[2rem] border p-7 outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30 sm:p-8 ${className} ${
+      className={`service-card group relative isolate min-w-0 min-h-72 overflow-hidden rounded-[2rem] border p-6 outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30 sm:p-8 ${className} ${
         dark
           ? "border-blue-400/80 bg-slate-950 text-white shadow-2xl shadow-blue-900/30 ring-4 ring-blue-500/10"
           : accent
@@ -136,7 +136,7 @@ function ServiceCard({
     >
       <div
         aria-hidden="true"
-        className={`absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-125 ${
+        className={`service-card-glow absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-75 blur-3xl transition-opacity duration-500 group-hover:opacity-100 ${
           dark
             ? "bg-blue-500/45"
             : accent
@@ -148,7 +148,7 @@ function ServiceCard({
         <>
           <div
             aria-hidden="true"
-            className="absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl transition-transform duration-700 group-hover:scale-125"
+            className="service-card-glow absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-cyan-500/15 opacity-75 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
           />
           <div
             aria-hidden="true"
@@ -157,7 +157,7 @@ function ServiceCard({
         </>
       )}
       <div className="relative flex h-full flex-col">
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-wrap items-start justify-between gap-4">
           <span
             className={`flex h-12 w-12 items-center justify-center rounded-2xl border transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-110 ${
               dark || accent
@@ -168,7 +168,7 @@ function ServiceCard({
             <ServiceIcon name={icon} />
           </span>
           <span
-            className={`rounded-full px-3 py-1.5 text-xs font-black ${
+            className={`max-w-full rounded-full px-3 py-1.5 text-center text-xs font-black leading-4 ${
               dark
                 ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
                 : accent
