@@ -136,26 +136,24 @@ function ServiceCard({
     >
       <div
         aria-hidden="true"
-        className={`service-card-glow absolute -right-20 -top-20 hidden h-64 w-64 rounded-full opacity-75 blur-3xl transition-opacity duration-500 group-hover:opacity-100 sm:block ${
-          dark
-            ? "bg-blue-500/45"
-            : accent
-              ? "bg-white/20"
-              : "bg-blue-200/45"
-        }`}
-      />
-      {dark && (
-        <>
-          <div
-            aria-hidden="true"
-            className="service-card-glow absolute -bottom-28 -left-24 hidden h-72 w-72 rounded-full bg-cyan-500/15 opacity-75 blur-3xl transition-opacity duration-700 group-hover:opacity-100 sm:block"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]"
-          />
-        </>
-      )}
+        className="service-card-effects absolute inset-0 overflow-hidden rounded-[inherit]"
+      >
+        <div
+          className={`service-card-glow absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-75 blur-3xl transition-opacity duration-500 group-hover:opacity-100 ${
+            dark
+              ? "bg-blue-500/45"
+              : accent
+                ? "bg-white/20"
+                : "bg-blue-200/45"
+          }`}
+        />
+        {dark && (
+          <>
+            <div className="service-card-glow absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-cyan-500/15 opacity-75 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
+          </>
+        )}
+      </div>
       <div className="relative flex h-full flex-col">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <span
