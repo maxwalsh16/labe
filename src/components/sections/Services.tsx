@@ -136,7 +136,7 @@ function ServiceCard({
     >
       <div
         aria-hidden="true"
-        className={`service-card-glow absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-75 blur-3xl transition-opacity duration-500 group-hover:opacity-100 ${
+        className={`service-card-glow absolute -right-20 -top-20 hidden h-64 w-64 rounded-full opacity-75 blur-3xl transition-opacity duration-500 group-hover:opacity-100 sm:block ${
           dark
             ? "bg-blue-500/45"
             : accent
@@ -148,7 +148,7 @@ function ServiceCard({
         <>
           <div
             aria-hidden="true"
-            className="service-card-glow absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-cyan-500/15 opacity-75 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
+            className="service-card-glow absolute -bottom-28 -left-24 hidden h-72 w-72 rounded-full bg-cyan-500/15 opacity-75 blur-3xl transition-opacity duration-700 group-hover:opacity-100 sm:block"
           />
           <div
             aria-hidden="true"
