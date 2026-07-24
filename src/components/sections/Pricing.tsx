@@ -141,8 +141,10 @@ export function Pricing() {
           >
             <div
               aria-hidden="true"
-              className="absolute -right-28 -top-28 h-80 w-80 rounded-full bg-blue-600/35 blur-3xl"
-            />
+              className="pricing-card-effects absolute inset-0 overflow-hidden rounded-[inherit]"
+            >
+              <div className="absolute -right-28 -top-28 h-80 w-80 rounded-full bg-blue-600/35 blur-3xl" />
+            </div>
             <div className="relative flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:justify-between">
               <div className="min-w-0">
                 <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-400">

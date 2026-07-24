@@ -189,7 +189,8 @@ a {
     box-shadow 0.35s ease;
 }
 
-.service-card-effects {
+.service-card-effects,
+.pricing-card-effects {
   contain: paint;
   clip-path: inset(0 round 2rem);
   transform: translateZ(0);
