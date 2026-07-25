@@ -112,9 +112,9 @@ export function StraightforwardPromise() {
         </div>
 
         <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-5 text-slate-500">
-          *Launch websites are delivered within 48 hours once full payment and
+          *Launch websites are completed within 48 hours once full payment and
           all required content are received. Growth is completed within 5
-          business days, with the website delivered within the first 48 hours.
+          business days, with the website delivered inside the first 48 hours.
           Deposit and staged-payment projects join the next available
           waiting-list position. Add-ons selected with Launch or Growth may
           require additional setup and testing time.
