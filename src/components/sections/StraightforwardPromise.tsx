@@ -13,7 +13,7 @@ const promises = [
   },
   {
     title: "Made easy for you",
-    detail: "We handle setup and show you how everything works—without the jargon.",
+    detail: "We handle the setup and make everything simple to use—no tech skills needed.",
     icon: "simple",
   },
 ] as const;
