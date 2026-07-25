@@ -42,19 +42,19 @@ const addOns = [
   {
     title: "Google Ads",
     description:
-      "Reach people searching for your service, track enquiries, and improve the page they land on.*",
+      "Get found when local customers search for your services, send them to a page built to convert, and track the enquiries that follow.*",
     pricing: "$750 setup",
   },
   {
     title: "Meta Ads",
     description:
-      "Reach a relevant local audience on Facebook and Instagram and track the enquiries you receive.*",
+      "Put your business in front of the right local audience on Facebook and Instagram, and track the enquiries your campaigns generate.*",
     pricing: "$750 setup",
   },
   {
     title: "AI receptionist",
     description:
-      "Answer missed calls, capture caller details, and route important enquiries through a suitable AI phone provider. Setup is included with Growth. Provider fees apply.*",
+      "Never lose a lead to a missed call. Your AI receptionist answers, collects caller details, and sends important enquiries straight to you. Setup is included with Growth. Provider fees apply.*",
     pricing: "Included with Growth · $299 with Launch",
   },
   {
