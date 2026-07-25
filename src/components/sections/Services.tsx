@@ -63,7 +63,7 @@ const services: Array<{
   {
     title: "AI receptionist",
     description:
-      "Give callers an answer when you cannot pick up, capture their details, and route important calls through a suitable AI phone provider. Setup is included with Growth.",
+      "When you can’t answer, your AI receptionist can. It handles common questions, captures caller details, and sends important enquiries straight to you. Setup is included with Growth.",
     tag: "Growth feature",
     href: "#growth-plan",
     icon: "phone",
