@@ -305,10 +305,22 @@ const sections = [
       <>
         <p>
           Any recurring service continues for the period and at the price
-          stated in your proposal. Unless a different notice period is agreed,
-          you may cancel an ongoing month-to-month service by emailing us
-          before the next billing date. Cancellation takes effect at the end
-          of the current paid billing period.
+          stated in your proposal. You may request cancellation of a Labe
+          subscription or ongoing add-on at any time by emailing{" "}
+          <a href="mailto:hello@labe.com.au">hello@labe.com.au</a>. For a
+          Labe subscription billed through Stripe, we will provide a secure
+          Stripe cancellation link and confirm the effective cancellation date.
+          Unless a different notice period is agreed, cancellation takes effect
+          at the end of the current paid billing period.
+        </p>
+        <p>
+          We will provide reasonable assistance to wind down connected
+          services, hand over relevant access, and address outstanding items.
+          Third-party subscriptions, usage services, and advertising campaigns
+          may also need to be stopped or cancelled through the relevant
+          provider account. We will help identify those steps, but provider
+          charges can continue until the provider-side cancellation takes
+          effect.
         </p>
         <p>
           If you cancel a project after work has begun, you must pay for work
