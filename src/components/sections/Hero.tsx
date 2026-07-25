@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CallReceptionistButton } from "@/components/ui/CallReceptionistButton";
+import { ChatAgentButton } from "@/components/ui/ChatAgentButton";
 import { Container } from "@/components/ui/Container";
 
 export function Hero() {
@@ -64,11 +65,17 @@ export function Hero() {
               </span>
             </div>
 
-            <div className="hero-enter hero-enter-5 mx-auto mt-8 flex w-full max-w-sm flex-col items-center gap-3 sm:mx-0 sm:mt-12 sm:w-auto sm:max-w-none sm:flex-row sm:justify-center lg:mt-7 lg:justify-start">
+            <div className="hero-enter hero-enter-5 mx-auto mt-8 flex w-full max-w-sm flex-col items-center gap-3 sm:mx-0 sm:mt-12 sm:w-auto sm:max-w-none lg:mt-7 lg:items-start">
               <span className="text-sm font-semibold text-slate-500">
                 Want to talk it through?
               </span>
-              <CallReceptionistButton className="w-full sm:min-h-11 sm:w-auto sm:px-4 sm:text-sm" />
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                <CallReceptionistButton className="w-full sm:min-h-11 sm:w-auto sm:px-4 sm:text-sm" />
+                <ChatAgentButton
+                  compact
+                  className="w-full sm:w-auto"
+                />
+              </div>
             </div>
           </div>
 

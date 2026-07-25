@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CallReceptionistButton } from "@/components/ui/CallReceptionistButton";
+import { ChatAgentButton } from "@/components/ui/ChatAgentButton";
 import { Container } from "@/components/ui/Container";
 import { OfferCountdown } from "@/components/ui/OfferCountdown";
 import {
@@ -224,7 +225,10 @@ export function Pricing() {
             common questions, and help you take the right next step without
             waiting for an email.
           </p>
-          <CallReceptionistButton className="mt-5" />
+          <div className="mt-5 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+            <CallReceptionistButton className="w-full sm:w-auto" />
+            <ChatAgentButton className="w-full sm:w-auto" />
+          </div>
         </div>
 
         <div id="add-ons" className="mx-auto mt-16 max-w-6xl scroll-mt-28">

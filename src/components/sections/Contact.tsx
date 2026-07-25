@@ -1,5 +1,6 @@
 import { ContactForm } from "@/components/forms/ContactForm";
 import { CallReceptionistButton } from "@/components/ui/CallReceptionistButton";
+import { ChatAgentButton } from "@/components/ui/ChatAgentButton";
 import { Container } from "@/components/ui/Container";
 
 const promises = [
@@ -73,8 +74,12 @@ export function Contact() {
               secures priority delivery.
             </div>
 
-            <div className="mt-10 border-t border-white/15 pt-8">
+            <div className="mt-10 flex flex-col gap-3 border-t border-white/15 pt-8 sm:flex-row">
               <CallReceptionistButton
+                tone="blue"
+                className="w-full sm:w-auto"
+              />
+              <ChatAgentButton
                 tone="blue"
                 className="w-full sm:w-auto"
               />

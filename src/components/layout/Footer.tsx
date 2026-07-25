@@ -1,5 +1,6 @@
 import { BeakerLogo } from "@/components/brand/BeakerLogo";
 import { CallReceptionistButton } from "@/components/ui/CallReceptionistButton";
+import { ChatAgentButton } from "@/components/ui/ChatAgentButton";
 import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import { siX } from "simple-icons";
@@ -64,6 +65,11 @@ export function Footer() {
             </p>
             <div className="mt-5 flex flex-col gap-3">
               <CallReceptionistButton
+                tone="dark"
+                compact
+                className="self-start"
+              />
+              <ChatAgentButton
                 tone="dark"
                 compact
                 className="self-start"
