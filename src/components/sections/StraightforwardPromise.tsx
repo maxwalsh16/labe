@@ -2,24 +2,73 @@ import { Container } from "@/components/ui/Container";
 
 const promises = [
   {
-    number: "01",
     title: "Price agreed upfront",
     detail: "Know exactly what is included and what it costs before we begin.",
-    icon: "$",
+    icon: "price",
   },
   {
-    number: "02",
     title: "Live in 48h*",
     detail: "Pay in full, send the essentials, and your priority build gets moving.",
-    icon: "48",
+    icon: "speed",
   },
   {
-    number: "03",
     title: "Made easy for you",
     detail: "We handle the technical work and show you what matters—in plain English.",
-    icon: "✓",
+    icon: "simple",
   },
 ] as const;
+
+function PromiseIcon({ icon }: { icon: (typeof promises)[number]["icon"] }) {
+  if (icon === "price") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="h-6 w-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2v20M17 6.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    );
+  }
+
+  if (icon === "speed") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="h-6 w-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2M5.6 5.6 4 4M18.4 5.6 20 4" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-6 w-6"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m5 12 4 4L19 6" />
+    </svg>
+  );
+}
 
 export function StraightforwardPromise() {
   return (
@@ -52,7 +101,7 @@ export function StraightforwardPromise() {
           <div className="relative grid md:grid-cols-3">
             <div
               aria-hidden="true"
-              className="absolute left-[16.666%] right-[16.666%] top-[4.7rem] hidden h-px bg-gradient-to-r from-blue-500/0 via-blue-400/50 to-blue-500/0 md:block"
+              className="absolute left-[16.666%] right-[16.666%] top-16 hidden h-px bg-gradient-to-r from-blue-500/0 via-blue-400/50 to-blue-500/0 md:block"
             />
             {promises.map((promise, index) => (
               <div
@@ -65,13 +114,10 @@ export function StraightforwardPromise() {
               >
                 <div className="flex items-center gap-4 md:flex-col md:items-start">
                   <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-blue-400/25 bg-blue-500/15 text-lg font-black text-blue-200 shadow-lg shadow-blue-950/30">
-                    {promise.icon}
+                    <PromiseIcon icon={promise.icon} />
                   </span>
                   <div>
-                    <p className="text-[0.65rem] font-black uppercase tracking-[0.18em] text-slate-500">
-                      {promise.number}
-                    </p>
-                    <h3 className="mt-1 text-xl font-black">{promise.title}</h3>
+                    <h3 className="text-xl font-black">{promise.title}</h3>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-slate-400 md:mt-5">
@@ -83,9 +129,9 @@ export function StraightforwardPromise() {
         </div>
 
         <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-5 text-slate-500">
-          *The 48-hour Launch turnaround begins once payment and required
-          content are received. Growth automation and selected add-ons may take
-          additional time to configure and test.
+          *Your website&apos;s 48-hour turnaround begins once full payment and
+          the required content are received. Growth automation and add-ons
+          follow as soon as setup and testing are complete.
         </p>
       </Container>
     </section>
