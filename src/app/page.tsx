@@ -9,6 +9,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
+import { StraightforwardPromise } from "@/components/sections/StraightforwardPromise";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <StraightforwardPromise />
         <Services />
         <Benefits />
         <ConversionSimulator />

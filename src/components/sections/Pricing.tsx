@@ -226,8 +226,12 @@ export function Pricing() {
             waiting for an email.
           </p>
           <div className="mt-5 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
-            <CallReceptionistButton className="w-full sm:w-auto" />
-            <ChatAgentButton className="w-full sm:w-auto" />
+            <CallReceptionistButton
+              balanced
+              showNumber={false}
+              className="w-full sm:w-auto"
+            />
+            <ChatAgentButton balanced className="w-full sm:w-auto" />
           </div>
         </div>
 

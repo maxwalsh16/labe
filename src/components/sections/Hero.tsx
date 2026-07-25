@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="hero-grid relative z-10 isolate overflow-x-clip pb-12 pt-32 sm:pb-24 sm:pt-36 lg:pb-16 lg:pt-32"
+      className="hero-grid relative z-10 isolate overflow-x-clip pb-12 pt-[7.75rem] sm:pb-24 sm:pt-36 lg:pb-16 lg:pt-32"
     >
       <div
         aria-hidden="true"
@@ -29,7 +29,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="hero-enter hero-enter-2 mt-8 text-balance text-5xl font-black leading-[0.98] tracking-[-0.058em] text-slate-950 sm:mt-12 sm:text-7xl lg:mt-7 lg:text-[5.25rem]">
+            <h1 className="hero-enter hero-enter-2 mt-11 text-balance text-5xl font-black leading-[0.98] tracking-[-0.058em] text-slate-950 sm:mt-12 sm:text-7xl lg:mt-7 lg:text-[5.25rem]">
               The website and AI you need—
               <span className="hero-highlight relative inline-block text-blue-600">
                 sorted.
@@ -58,7 +58,7 @@ export function Hero() {
                 <CheckIcon /> Upfront pricing
               </span>
               <span className="inline-flex items-center gap-2">
-                <CheckIcon /> Fast-track when paid in full
+                <CheckIcon /> Live in 48h*
               </span>
               <span className="inline-flex items-center gap-2">
                 <CheckIcon /> No tech skills needed
@@ -70,8 +70,13 @@ export function Hero() {
                 Want to talk it through?
               </span>
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                <CallReceptionistButton className="w-full sm:min-h-11 sm:w-auto sm:px-4 sm:text-sm" />
+                <CallReceptionistButton
+                  balanced
+                  showNumber={false}
+                  className="w-full sm:min-h-11 sm:w-auto sm:px-4 sm:text-sm"
+                />
                 <ChatAgentButton
+                  balanced
                   compact
                   className="w-full sm:w-auto"
                 />
@@ -84,7 +89,7 @@ export function Hero() {
               aria-hidden="true"
               className="absolute -inset-8 -z-10 rounded-[3rem] bg-blue-500/10 blur-3xl"
             />
-            <div className="hero-system relative overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 p-4 text-white shadow-[0_32px_90px_rgba(15,23,42,0.28)] sm:p-6">
+            <div className="hero-system relative overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 p-4 text-white shadow-[0_32px_90px_rgba(15,23,42,0.28)] [clip-path:inset(0_round_2rem)] sm:p-6">
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
               <div
                 aria-hidden="true"

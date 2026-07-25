@@ -5,12 +5,14 @@ import { useChatAgent } from "@/components/ui/JotformChatDialog";
 type ChatAgentButtonProps = {
   tone?: "light" | "blue" | "dark";
   compact?: boolean;
+  balanced?: boolean;
   className?: string;
 };
 
 export function ChatAgentButton({
   tone = "light",
   compact = false,
+  balanced = false,
   className = "",
 }: ChatAgentButtonProps) {
   const { openChat } = useChatAgent();
@@ -28,7 +30,11 @@ export function ChatAgentButton({
       type="button"
       onClick={openChat}
       aria-label="Chat with Labe AI"
-      className={`group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
+      className={`group cursor-pointer items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
+        balanced
+          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem] sm:inline-flex"
+          : "inline-flex"
+      } ${
         compact ? "min-h-11 px-4 text-sm" : "min-h-14 px-6 text-base"
       } ${tones[tone]} ${className}`}
     >
@@ -58,6 +64,9 @@ export function ChatAgentButton({
         </svg>
       </span>
       <span>Chat with Labe AI</span>
+      {balanced ? (
+        <span className="h-8 w-8 sm:hidden" aria-hidden="true" />
+      ) : null}
     </button>
   );
 }

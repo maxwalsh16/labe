@@ -1,6 +1,8 @@
 type CallReceptionistButtonProps = {
   tone?: "light" | "blue" | "dark";
   compact?: boolean;
+  balanced?: boolean;
+  showNumber?: boolean;
   className?: string;
 };
 
@@ -9,6 +11,8 @@ const PHONE_HREF = "tel:+61414785829";
 export function CallReceptionistButton({
   tone = "light",
   compact = false,
+  balanced = false,
+  showNumber = true,
   className = "",
 }: CallReceptionistButtonProps) {
   const tones = {
@@ -24,7 +28,11 @@ export function CallReceptionistButton({
     <a
       href={PHONE_HREF}
       aria-label="Call Labe's AI receptionist on 0414 785 829"
-      className={`group inline-flex items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
+      className={`group items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
+        balanced
+          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem] sm:inline-flex"
+          : "inline-flex"
+      } ${
         compact ? "min-h-11 px-4 text-sm" : "min-h-14 px-6 text-base"
       } ${tones[tone]} ${className}`}
     >
@@ -52,10 +60,15 @@ export function CallReceptionistButton({
       </span>
       <span>
         Call Labe now
-        <span className="ml-2 hidden font-bold opacity-70 sm:inline">
-          0414 785 829
-        </span>
+        {showNumber ? (
+          <span className="ml-2 hidden font-bold opacity-70 sm:inline">
+            0414 785 829
+          </span>
+        ) : null}
       </span>
+      {balanced ? (
+        <span className="h-8 w-8 sm:hidden" aria-hidden="true" />
+      ) : null}
     </a>
   );
 }
