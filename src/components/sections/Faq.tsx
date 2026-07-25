@@ -34,7 +34,7 @@ const questions = [
   {
     question: "Do I own the finished website?",
     answer:
-      "Yes—the normal arrangement is that you own the finished website and the content you supplied or purchased. Your proposal confirms this before work begins. Domains, stock images, fonts, AI tools, and other outside services still follow their providers’ licence terms.",
+      "Yes. Once your project is paid in full, you own the finished website and the custom work created for your business. Labe keeps ownership of the reusable templates, components, systems, and tools used to build it, but you have an ongoing licence to use everything included in your website. Content you provide remains yours. Third-party services and assets follow their own licence terms.",
   },
   {
     question: "What does the Growth monthly fee cover?",
