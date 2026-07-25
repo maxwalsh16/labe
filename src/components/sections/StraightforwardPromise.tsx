@@ -7,8 +7,8 @@ const promises = [
     icon: "price",
   },
   {
-    title: "48h website delivery when paid in full*",
-    detail: "Pay in full to skip the waiting list and secure priority delivery.",
+    title: "Live in 48h*",
+    detail: "48h website delivery when paid in full*",
     icon: "speed",
   },
   {
