@@ -3,20 +3,20 @@ import { Container } from "@/components/ui/Container";
 const promises = [
   {
     number: "01",
-    title: "Clear pricing",
-    detail: "Know the cost and what is included before you commit.",
+    title: "Price agreed upfront",
+    detail: "Know exactly what is included and what it costs before we begin.",
     icon: "$",
   },
   {
     number: "02",
     title: "Live in 48h*",
-    detail: "Pay in full, send your content, and move straight to priority.",
+    detail: "Pay in full, send the essentials, and your priority build gets moving.",
     icon: "48",
   },
   {
     number: "03",
-    title: "Easy to use",
-    detail: "We handle setup and show you everything in plain English.",
+    title: "Made easy for you",
+    detail: "We handle the technical work and show you what matters—in plain English.",
     icon: "✓",
   },
 ] as const;
@@ -28,22 +28,24 @@ export function StraightforwardPromise() {
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 text-white shadow-[0_28px_80px_rgba(15,23,42,0.18)]">
           <div className="grid gap-8 border-b border-white/10 px-6 py-8 sm:px-10 sm:py-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3.5 py-2 text-xs font-black uppercase tracking-[0.16em] text-blue-200 shadow-lg shadow-blue-950/20">
-                <span
-                  aria-hidden="true"
-                  className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[0.65rem] text-white"
-                >
-                  ✓
-                </span>
-                Straightforward from day one
-              </p>
-              <h2 className="mt-3 text-balance text-3xl font-black tracking-[-0.045em] sm:text-4xl">
-                Clear, fast, and easy from day one.
+              <div className="inline-flex rounded-full bg-gradient-to-r from-blue-500 via-cyan-300 to-blue-500 p-px shadow-[0_8px_30px_rgba(37,99,235,0.24)]">
+                <p className="inline-flex items-center gap-2.5 rounded-full bg-slate-950 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-100">
+                  <span
+                    aria-hidden="true"
+                    className="relative flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-[0.65rem] text-white shadow-[0_0_18px_rgba(96,165,250,0.7)]"
+                  >
+                    ✓
+                  </span>
+                  The Labe promise
+                </p>
+              </div>
+              <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.045em] sm:text-4xl">
+                Clear price. Fast launch. No tech headache.
               </h2>
             </div>
             <p className="max-w-2xl text-pretty text-base leading-7 text-slate-300 lg:justify-self-end">
-              Know what you are paying, get your website live fast, and use
-              modern technology without needing to become the tech expert.
+              Know what you are getting, get online quickly, and put better
+              technology to work without having to figure it out yourself.
             </p>
           </div>
 
