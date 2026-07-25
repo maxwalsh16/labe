@@ -8,32 +8,19 @@ const promises = [
   },
   {
     title: "Live in 48h*",
-    detail: "Pay in full, send the essentials, and your priority build gets moving.",
+    detail: "Pay in full, send your content, and skip the waiting list.",
     icon: "speed",
   },
   {
     title: "Made easy for you",
-    detail: "We handle the technical work and show you what matters—in plain English.",
+    detail: "We handle setup and show you how everything works—without the jargon.",
     icon: "simple",
   },
 ] as const;
 
 function PromiseIcon({ icon }: { icon: (typeof promises)[number]["icon"] }) {
   if (icon === "price") {
-    return (
-      <svg
-        aria-hidden="true"
-        className="h-6 w-6"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 2v20M17 6.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    );
+    return <span aria-hidden="true">$</span>;
   }
 
   if (icon === "speed") {
@@ -99,10 +86,6 @@ export function StraightforwardPromise() {
           </div>
 
           <div className="relative grid md:grid-cols-3">
-            <div
-              aria-hidden="true"
-              className="absolute left-[16.666%] right-[16.666%] top-16 hidden h-px bg-gradient-to-r from-blue-500/0 via-blue-400/50 to-blue-500/0 md:block"
-            />
             {promises.map((promise, index) => (
               <div
                 key={promise.title}
@@ -129,9 +112,9 @@ export function StraightforwardPromise() {
         </div>
 
         <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-5 text-slate-500">
-          *Your website&apos;s 48-hour turnaround begins once full payment and
-          the required content are received. Growth automation and add-ons
-          follow as soon as setup and testing are complete.
+          *The 48-hour timeframe covers your website once full payment and
+          content are received. Growth automation and add-ons are completed
+          separately, with time allowed for proper setup and testing.
         </p>
       </Container>
     </section>
