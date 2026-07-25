@@ -72,7 +72,8 @@ export function Hero() {
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
                 <CallReceptionistButton
                   balanced
-                  className="w-full sm:min-h-11 sm:w-auto sm:px-4 sm:text-sm"
+                  compact
+                  className="w-full sm:w-auto"
                 />
                 <ChatAgentButton
                   balanced

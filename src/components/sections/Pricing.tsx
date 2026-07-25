@@ -228,9 +228,10 @@ export function Pricing() {
           <div className="mt-5 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
             <CallReceptionistButton
               balanced
+              compact
               className="w-full sm:w-auto"
             />
-            <ChatAgentButton balanced className="w-full sm:w-auto" />
+            <ChatAgentButton balanced compact className="w-full sm:w-auto" />
           </div>
         </div>
 

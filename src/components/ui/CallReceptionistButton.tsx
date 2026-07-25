@@ -1,7 +1,7 @@
 type CallReceptionistButtonProps = {
   tone?: "light" | "blue" | "dark";
   compact?: boolean;
-  balanced?: boolean;
+  balanced?: boolean | "always";
   showNumber?: boolean;
   className?: string;
 };
@@ -28,11 +28,7 @@ export function CallReceptionistButton({
     <a
       href={PHONE_HREF}
       aria-label="Call Labe's AI receptionist on 0414 785 829"
-      className={`group items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
-        balanced
-          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem]"
-          : "inline-flex"
-      } ${
+      className={`group relative inline-flex items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
         compact ? "min-h-11 px-4 text-sm" : "min-h-14 px-6 text-base"
       } ${tones[tone]} ${className}`}
     >
@@ -44,6 +40,12 @@ export function CallReceptionistButton({
           tone === "blue"
             ? "bg-blue-100 text-blue-700"
             : "bg-white/15 text-white group-hover:bg-white/20"
+        } ${
+          balanced === "always"
+            ? "absolute left-5"
+            : balanced
+              ? "absolute left-5 sm:static"
+              : ""
         }`}
       >
         <svg
@@ -66,9 +68,6 @@ export function CallReceptionistButton({
           </span>
         ) : null}
       </span>
-      {balanced ? (
-        <span className="h-8 w-8" aria-hidden="true" />
-      ) : null}
     </a>
   );
 }

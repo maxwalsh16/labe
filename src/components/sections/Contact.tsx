@@ -77,12 +77,14 @@ export function Contact() {
             <div className="mt-10 flex max-w-md flex-col gap-3 border-t border-white/15 pt-8">
               <CallReceptionistButton
                 tone="blue"
-                balanced
+                balanced="always"
+                compact
                 className="w-full"
               />
               <ChatAgentButton
                 tone="blue"
-                balanced
+                balanced="always"
+                compact
                 className="w-full"
               />
             </div>
