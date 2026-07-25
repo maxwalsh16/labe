@@ -28,8 +28,31 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
+    icon: [{ url: "/icon", type: "image/png", sizes: "64x64" }],
+    shortcut: "/icon",
+    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_AU",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: "Labe — Modern websites and practical AI solutions",
+    description: siteConfig.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Labe — Modern websites and practical AI solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Labe — Modern websites and practical AI solutions",
+    description: siteConfig.description,
+    images: ["/opengraph-image"],
   },
 };
 
