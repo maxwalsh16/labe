@@ -47,7 +47,6 @@ const sections = [
           </li>
           <li>
             correspondence, feedback, and other information you send to us;
-            and
           </li>
           <li>
             messages and information you provide through an AI chat assistant;
@@ -192,34 +191,62 @@ const sections = [
           the privacy notices, permissions, retention settings, and lawful use
           required for its callers and business.
         </p>
+        <p>
+          When Labe handles personal information on a customer&apos;s behalf
+          through a website form, automation, booking tool, AI receptionist, or
+          similar service, we use that information only to provide, secure,
+          support, and improve the agreed service, or as otherwise instructed
+          or required by law. The customer remains responsible for ensuring
+          that its own collection and use of personal information is lawful and
+          appropriately disclosed.
+        </p>
       </>
     ),
   },
   {
     title: "8. Overseas processing",
     content: (
-      <p>
-        Some service providers may store or process information outside
-        Australia. The locations can vary depending on the provider and its
-        infrastructure. Where required, we take reasonable steps to ensure
-        overseas recipients handle personal information consistently with
-        applicable Australian privacy requirements.
-      </p>
+      <>
+        <p>
+          Some service providers may store or process information outside
+          Australia. Depending on the service used, likely locations include
+          Australia, the United States, the United Kingdom, and countries in
+          the European Economic Area. Providers may also use infrastructure in
+          other countries identified in their current privacy or data-location
+          documentation.
+        </p>
+        <p>
+          Provider locations and infrastructure can change. Where required, we
+          take reasonable steps to ensure overseas recipients handle personal
+          information consistently with applicable Australian privacy
+          requirements. You may contact us for current information about the
+          providers relevant to your information.
+        </p>
+      </>
     ),
   },
   {
-    title: "9. Security and retention",
+    title: "9. Security, retention, and data breaches",
     content: (
-      <p>
-        We take reasonable technical and organisational steps to protect
-        personal information from misuse, interference, loss, and unauthorised
-        access, modification, or disclosure. No internet transmission or
-        storage system is completely secure. Chat messages, call recordings,
-        transcripts, and summaries are retained only for as long as reasonably
-        necessary for the purposes described in this policy, to resolve
-        disputes, or as required by law, then deleted or de-identified where
-        practicable.
-      </p>
+      <>
+        <p>
+          We take reasonable technical and organisational steps to protect
+          personal information from misuse, interference, loss, and
+          unauthorised access, modification, or disclosure. No internet
+          transmission or storage system is completely secure. Chat messages,
+          call recordings, transcripts, and summaries are retained only for as
+          long as reasonably necessary for the purposes described in this
+          policy, to resolve disputes, or as required by law, then deleted or
+          de-identified where practicable.
+        </p>
+        <p>
+          If we become aware of a suspected data breach, we will take
+          reasonable steps to contain it, assess its likely impact, and reduce
+          the risk of harm. Where the Notifiable Data Breaches scheme or
+          another applicable law requires notification, we will notify affected
+          individuals and the relevant regulator as required.
+        </p>
+      </>
     ),
   },
   {
@@ -254,7 +281,9 @@ const sections = [
           information, please email{" "}
           <a href="mailto:hello@labe.com.au">hello@labe.com.au</a>. Include
           enough detail for us to understand the issue. We will acknowledge
-          your complaint and aim to respond within a reasonable time.
+          your complaint and aim to provide a substantive response within 30
+          days. If we need more time, we will explain why and provide an
+          updated timeframe.
         </p>
         <p>
           If you are not satisfied with our response, you may be able to lodge
@@ -329,7 +358,7 @@ export default function PrivacyPage() {
                 and how we look after it.
               </p>
               <p className="mt-5 text-sm font-semibold text-slate-500">
-                Effective 24 July 2026
+                Effective 25 July 2026
               </p>
 
               <div className="mt-12 space-y-10">

@@ -89,6 +89,14 @@ const sections = [
           You remain responsible for your business decisions, advertising
           claims, customer communications, and compliance obligations.
         </p>
+        <p>
+          If the services collect or handle personal information about your
+          customers, callers, staff, or other people, you are responsible for
+          providing any required privacy notices and obtaining any required
+          permissions or consents. You instruct Labe to handle that information
+          only as reasonably necessary to provide, secure, support, and improve
+          the agreed services, or as otherwise instructed or required by law.
+        </p>
       </>
     ),
   },
@@ -171,6 +179,21 @@ const sections = [
           relevant offer is displayed and available at checkout.
         </p>
         <p>
+          By purchasing Labe Growth, you authorise Labe and its payment
+          processor, Stripe, to charge the payment method used at checkout $149
+          each month, beginning 7 days after the setup payment, until the
+          recurring service is cancelled in accordance with these terms. If a
+          recurring payment fails, we may ask you to update the payment method,
+          retry the charge, and, after reasonable notice, pause the recurring
+          features until payment is brought up to date.
+        </p>
+        <p>
+          We will give reasonable advance notice of any proposed change to the
+          recurring service price. A price change will not apply before the
+          notified date, and you may cancel before it takes effect without a
+          cancellation penalty.
+        </p>
+        <p>
           We may pause work or withhold launch, transfer, or final files while
           an invoice is overdue, after giving you reasonable notice. This does
           not affect any rights you have under applicable law.
@@ -243,12 +266,20 @@ const sections = [
           permission to use that material to provide the services.
         </p>
         <p>
-          Once all project invoices are paid, you may use, operate, publish,
-          and modify the completed website and project-specific deliverables
-          for your business. Labe retains ownership of its pre-existing
-          materials, reusable templates, methods, systems, know-how, and tools.
-          We grant you an ongoing licence to use those elements as incorporated
-          into your completed website.
+          Once all project invoices are paid, Labe assigns to you the
+          intellectual property rights that Labe owns in the project-specific
+          deliverables created exclusively for your business. You own and may
+          use, operate, publish, and modify the completed website, subject to
+          the exclusions below.
+        </p>
+        <p>
+          Labe retains ownership of its pre-existing materials, reusable
+          templates, components, methods, systems, know-how, and tools. We
+          grant you an ongoing, worldwide, royalty-free licence to use those
+          elements as incorporated into your completed website. This licence
+          allows the finished website to continue operating and to be modified
+          for your business, but does not transfer ownership of Labe&apos;s
+          underlying reusable materials.
         </p>
         <p>
           Third-party software, fonts, photographs, and other licensed
@@ -448,7 +479,7 @@ export default function TermsPage() {
                 Labe.
               </p>
               <p className="mt-5 text-sm font-semibold text-slate-500">
-                Effective 24 July 2026
+                Effective 25 July 2026
               </p>
 
               <div className="mt-12 space-y-10">
