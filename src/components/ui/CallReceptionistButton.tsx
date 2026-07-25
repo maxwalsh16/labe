@@ -30,7 +30,7 @@ export function CallReceptionistButton({
       aria-label="Call Labe's AI receptionist on 0414 785 829"
       className={`group items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
         balanced
-          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem] sm:inline-flex"
+          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem]"
           : "inline-flex"
       } ${
         compact ? "min-h-11 px-4 text-sm" : "min-h-14 px-6 text-base"
@@ -67,7 +67,7 @@ export function CallReceptionistButton({
         ) : null}
       </span>
       {balanced ? (
-        <span className="h-8 w-8 sm:hidden" aria-hidden="true" />
+        <span className="h-8 w-8" aria-hidden="true" />
       ) : null}
     </a>
   );

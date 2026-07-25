@@ -28,8 +28,14 @@ export function StraightforwardPromise() {
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 text-white shadow-[0_28px_80px_rgba(15,23,42,0.18)]">
           <div className="grid gap-8 border-b border-white/10 px-6 py-8 sm:px-10 sm:py-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-300">
-                No nonsense. No runaround.
+              <p className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3.5 py-2 text-xs font-black uppercase tracking-[0.16em] text-blue-200 shadow-lg shadow-blue-950/20">
+                <span
+                  aria-hidden="true"
+                  className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[0.65rem] text-white"
+                >
+                  ✓
+                </span>
+                Straightforward from day one
               </p>
               <h2 className="mt-3 text-balance text-3xl font-black tracking-[-0.045em] sm:text-4xl">
                 Clear, fast, and easy from day one.

@@ -74,17 +74,16 @@ export function Contact() {
               secures priority delivery.
             </div>
 
-            <div className="mt-10 flex flex-col gap-3 border-t border-white/15 pt-8 xl:flex-row">
+            <div className="mt-10 flex max-w-md flex-col gap-3 border-t border-white/15 pt-8">
               <CallReceptionistButton
                 tone="blue"
                 balanced
-                showNumber={false}
-                className="w-full xl:w-auto"
+                className="w-full"
               />
               <ChatAgentButton
                 tone="blue"
                 balanced
-                className="w-full xl:w-auto"
+                className="w-full"
               />
             </div>
 

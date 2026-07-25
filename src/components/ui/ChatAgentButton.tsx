@@ -32,7 +32,7 @@ export function ChatAgentButton({
       aria-label="Chat with Labe AI"
       className={`group cursor-pointer items-center justify-center gap-3 rounded-full border font-black transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 ${
         balanced
-          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem] sm:inline-flex"
+          ? "grid grid-cols-[2rem_minmax(0,1fr)_2rem]"
           : "inline-flex"
       } ${
         compact ? "min-h-11 px-4 text-sm" : "min-h-14 px-6 text-base"
@@ -65,7 +65,7 @@ export function ChatAgentButton({
       </span>
       <span>Chat with Labe AI</span>
       {balanced ? (
-        <span className="h-8 w-8 sm:hidden" aria-hidden="true" />
+        <span className="h-8 w-8" aria-hidden="true" />
       ) : null}
     </button>
   );
