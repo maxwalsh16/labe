@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Labe",
     short_name: "Labe",
     description:
-      "Modern websites and practical AI solutions for small businesses.",
+      "Modern websites, automated follow-up, and practical AI solutions. We help small businesses win more work with less admin.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

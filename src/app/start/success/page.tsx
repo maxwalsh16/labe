@@ -2,6 +2,7 @@ import { BeakerLogo } from "@/components/brand/BeakerLogo";
 import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Stripe from "stripe";
 
 export const metadata: Metadata = {
@@ -13,24 +14,34 @@ export const metadata: Metadata = {
 export default async function CheckoutSuccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ session_id?: string }>;
+  searchParams: Promise<{ session_id?: string; preview?: string }>;
 }) {
-  const { session_id: sessionId } = await searchParams;
+  const { session_id: sessionId, preview } = await searchParams;
   const secretKey = process.env.STRIPE_SECRET_KEY;
-  let verified = false;
+  let verified =
+    process.env.NODE_ENV !== "production" && preview === "verified";
   let email = "";
 
   if (sessionId && secretKey) {
     try {
       const stripe = new Stripe(secretKey);
       const session = await stripe.checkout.sessions.retrieve(sessionId);
+      const isLabePackage = ["launch", "growth"].includes(
+        session.metadata?.plan || "",
+      );
       verified =
         session.status === "complete" &&
-        ["paid", "no_payment_required"].includes(session.payment_status);
+        session.payment_status === "paid" &&
+        isLabePackage &&
+        Boolean(session.client_reference_id);
       email = session.customer_details?.email || session.customer_email || "";
     } catch {
       verified = false;
     }
+  }
+
+  if (!verified) {
+    notFound();
   }
 
   return (
@@ -67,19 +78,20 @@ export default async function CheckoutSuccessPage({
                 Payment received
               </p>
               <h1 className="mt-3 text-balance text-4xl font-black tracking-[-0.05em] sm:text-5xl">
-                Your priority build position is reserved.
+                You&apos;re booked in for priority delivery.
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                Next, Labe will collect your logo, photos, colours, services,
-                wording, and design preferences through a simple guided
-                onboarding process.
+                We&apos;ll contact you within one business day and guide you
+                through the next steps. For now, gather your logo, photos,
+                services, colours, and preferred wording. Your priority
+                turnaround is locked in.
               </p>
 
               <div className="mt-9 grid gap-4 text-left sm:grid-cols-3">
                 {[
-                  ["1", "Gather your logo, photos, and business information"],
-                  ["2", "Complete the guided customisation questionnaire"],
-                  ["3", "Approve your content so the 48-hour build can begin"],
+                  ["1", "Look out for your welcome email"],
+                  ["2", "Send us your business details, logo, and photos"],
+                  ["3", "Confirm everything, and your priority build begins"],
                 ].map(([number, text]) => (
                   <div
                     key={number}
@@ -99,11 +111,11 @@ export default async function CheckoutSuccessPage({
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">
-                      When you will hear from us
+                      When will you hear from us?
                     </p>
                     <p className="mt-2 text-base font-black leading-7 text-white">
-                      Labe will contact you within one business day with your
-                      onboarding link and next steps.
+                      We&apos;ll email you within one business day with
+                      everything we need to get started.
                     </p>
                     <p className="mt-2 text-sm leading-6 text-slate-300">
                       {email
@@ -119,7 +131,8 @@ export default async function CheckoutSuccessPage({
                       Monday–Friday, 9:00 am–5:00 pm
                     </p>
                     <p className="mt-2 text-sm leading-6 text-slate-300">
-                      Adelaide time, excluding South Australian public holidays.
+                      Adelaide time, excluding national and South Australian
+                      public holidays.
                     </p>
                   </div>
                 </div>

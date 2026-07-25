@@ -14,7 +14,7 @@ const steps = [
     title: "We build and connect everything",
     description:
       "We write the page, arrange the content, customise the design, connect your enquiries, and test everything on phones and computers.",
-    note: "Your 48-hour build begins",
+    note: "Your agreed build timeline begins",
     icon: "build",
   },
   {
@@ -96,10 +96,14 @@ export function Process() {
 
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 text-center">
           <p className="text-xs leading-5 text-slate-400">
-            The 48-hour build window begins once all required content, access,
-            and approvals to start have been received. Time awaiting client
-            feedback is outside that window; unusually complex integrations
-            receive a separate timeline before work begins.
+            Your website goes live within 48 hours, with Growth automation
+            completed within 5 business days. These priority timelines apply
+            when the package setup price and selected one-off add-ons are paid
+            in full. They begin once all required content, access, and approval
+            to start have been received. Deposit or staged-payment projects
+            enter the next available waiting-list position. Time awaiting
+            client feedback is outside those windows; third-party add-ons may
+            receive a separate timeline.
           </p>
         </div>
       </Container>

@@ -41,6 +41,11 @@ const sections = [
             enquiries;
           </li>
           <li>
+            the package and add-ons you select, transaction identifiers,
+            payment status, billing details, and subscription status (but not
+            your complete payment card details);
+          </li>
+          <li>
             correspondence, feedback, and other information you send to us;
             and
           </li>
@@ -70,10 +75,11 @@ const sections = [
       <>
         <p>
           We generally collect information directly from you when you submit
-          our contact form, use our AI chat assistant, email or call us, engage
-          us for services, or otherwise communicate with us. We may also
-          collect limited technical information automatically when you use our
-          website.
+          our contact or checkout form, use our AI chat assistant, email or
+          call us, engage us for services, or otherwise communicate with us.
+          Payment and subscription information is also provided to us by our
+          payment processor. We may collect limited technical information
+          automatically when you use our website.
         </p>
         <p>
           If a call may be recorded or transcribed, we will provide notice at
@@ -96,6 +102,10 @@ const sections = [
             summaries, and route enquiries to the appropriate person;
           </li>
           <li>prepare proposals, provide services, and manage projects;</li>
+          <li>
+            process payments, administer subscriptions, issue receipts, prevent
+            fraud, and maintain transaction records;
+          </li>
           <li>operate, secure, maintain, and improve our website and services;</li>
           <li>communicate with clients and provide support;</li>
           <li>
@@ -156,15 +166,31 @@ const sections = [
         <p>
           We may disclose personal information to trusted service providers
           that help us operate our business, including providers of website
-          hosting, email delivery, analytics, cloud storage, AI chat,
-          AI-assisted phone and transcription services, business software, and
-          professional advice.
+          hosting, payment processing, email delivery, analytics, cloud
+          storage, AI chat, AI-assisted phone and transcription services,
+          business software, and professional advice. Payment card details are
+          entered into the payment processor&apos;s secure checkout and are
+          not stored in full by Labe.
         </p>
         <p>
           We may also disclose information where you authorise us to do so, or
           where disclosure is required or permitted by law. We ask service
           providers to handle information only for the purposes for which it
           was provided and to protect it appropriately.
+        </p>
+        <p>
+          When we configure an AI receptionist for a customer, currently
+          through Hey Jodie unless another provider is requested or agreed,
+          caller details, call recordings, transcripts, summaries, booking
+          information, and other call data may be processed within the
+          customer&apos;s provider account. Labe may select a different
+          suitable provider for new customers and may recommend a provider
+          change for an existing customer. Where a change materially affects
+          an existing customer&apos;s account or data handling, we will explain
+          it and obtain the required approval before migration. The customer
+          owns or controls the provider account and is also responsible for
+          the privacy notices, permissions, retention settings, and lawful use
+          required for its callers and business.
         </p>
       </>
     ),
@@ -303,7 +329,7 @@ export default function PrivacyPage() {
                 and how we look after it.
               </p>
               <p className="mt-5 text-sm font-semibold text-slate-500">
-                Effective 23 July 2026
+                Effective 24 July 2026
               </p>
 
               <div className="mt-12 space-y-10">

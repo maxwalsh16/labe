@@ -63,9 +63,9 @@ const services: Array<{
   {
     title: "AI receptionist",
     description:
-      "Give callers an answer when you cannot pick up, capture their details, and route important calls.",
-    tag: "Usage-based add-on",
-    href: "#add-ons",
+      "Give callers an answer when you cannot pick up, capture their details, and route important calls through a suitable AI phone provider. Setup is included with Growth.",
+    tag: "Growth feature",
+    href: "#growth-plan",
     icon: "phone",
     className: "",
   },
@@ -85,15 +85,15 @@ export function Services() {
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-600">
-            One place to get it sorted
+            One team. Everything connected.
           </p>
           <h2 className="mt-4 text-balance text-4xl font-black tracking-[-0.045em] text-slate-950 sm:text-6xl">
-            Practical tools to help you win and handle more work.
+            Your website, AI, and advertising—all working together.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-600">
-            Start with the website you need today. Add automated follow-up,
-            bookings, advertising, or an AI receptionist only when they solve
-            a real business problem.
+            We bring your website, enquiries, bookings, AI receptionist,
+            automated follow-up, and advertising together—so you can win more
+            work with less admin.
           </p>
         </div>
 

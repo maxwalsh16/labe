@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type IndustryKey = "trades" | "professional" | "wellness" | "hospitality";
 
@@ -58,6 +58,24 @@ const packages = [
 export function ConversionSimulator() {
   const [visitors, setVisitors] = useState(800);
   const [industry, setIndustry] = useState<IndustryKey>("trades");
+  const [barsVisible, setBarsVisible] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const chart = chartRef.current;
+
+    if (!chart) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setBarsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(chart);
+    return () => observer.disconnect();
+  }, []);
 
   const results = useMemo(
     () =>
@@ -84,15 +102,14 @@ export function ConversionSimulator() {
       <Container className="relative">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-400">
-            See why automated follow-up matters
+            Make every website visit count
           </p>
           <h2 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] sm:text-6xl">
-            Small improvements can mean more enquiries.
+            Win more enquiries from the visitors you already have.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-300">
-            Choose your business type and estimated monthly visitors to see how
-            a clearer website and automated follow-up could affect enquiry
-            volume.
+            Choose your business type and monthly visitors to see how many
+            enquiries each Labe setup could generate.
           </p>
         </div>
 
@@ -193,6 +210,7 @@ export function ConversionSimulator() {
             </div>
 
             <div
+              ref={chartRef}
               aria-live="polite"
               className="mt-10 grid min-h-[22rem] grid-cols-3 items-end gap-3 sm:gap-6"
             >
@@ -217,7 +235,9 @@ export function ConversionSimulator() {
                     </div>
                     <div className="flex h-52 items-end sm:h-60">
                       <div
-                        className={`conversion-bar relative w-full rounded-t-2xl ${item.colour}`}
+                        className={`conversion-bar relative w-full rounded-t-2xl ${item.colour} ${
+                          barsVisible ? "conversion-bar-visible" : ""
+                        }`}
                         style={
                           {
                             "--bar-height": `${barHeight}%`,

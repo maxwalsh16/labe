@@ -10,8 +10,17 @@ type CheckoutPayload = {
   email?: unknown;
   phone?: unknown;
   website?: unknown;
+  addOns?: unknown;
   termsAccepted?: unknown;
 };
+
+const validAddOns = [
+  "google_ads",
+  "meta_ads",
+  "ads_bundle",
+  "ai_receptionist",
+] as const;
+type AddOn = (typeof validAddOns)[number];
 
 export async function POST(request: Request) {
   let payload: CheckoutPayload;
@@ -31,6 +40,30 @@ export async function POST(request: Request) {
   const email = asText(payload.email);
   const phone = asText(payload.phone);
   const website = asText(payload.website);
+  const addOns = Array.isArray(payload.addOns)
+    ? [
+        ...new Set(
+          payload.addOns.filter(
+            (item): item is AddOn =>
+              typeof item === "string" &&
+              validAddOns.includes(item as AddOn),
+          ),
+        ),
+      ]
+    : [];
+
+  if (
+    addOns.includes("ads_bundle") &&
+    (addOns.includes("google_ads") || addOns.includes("meta_ads"))
+  ) {
+    return Response.json(
+      {
+        message:
+          "Choose either the advertising bundle or the individual advertising setups.",
+      },
+      { status: 400 },
+    );
+  }
 
   if (
     !["launch", "growth"].includes(plan) ||
@@ -79,10 +112,78 @@ export async function POST(request: Request) {
       ? siteConfig.url
       : requestUrl.origin;
   const isGrowth = plan === "growth";
+  const hasRecurringCharge = isGrowth;
+
+  const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = isGrowth
+    ? [
+        {
+          price_data: {
+            currency: "aud",
+            unit_amount: 299900,
+            product_data: {
+              name: "Labe Growth — setup",
+              description:
+                "Website, AI-assisted lead handling, booking, and automated follow-up setup.",
+            },
+          },
+          quantity: 1,
+        },
+        {
+          price_data: {
+            currency: "aud",
+            unit_amount: 14900,
+            recurring: { interval: "month" },
+            product_data: {
+              name: "Labe Growth — ongoing service",
+              description:
+                "Standard usage, ongoing checks, and one minor content update each month.",
+            },
+          },
+          quantity: 1,
+        },
+      ]
+    : [
+        {
+          price_data: {
+            currency: "aud",
+            unit_amount: 149900,
+            product_data: {
+              name: "Labe Launch",
+              description:
+                "A focused 1–2 page lead-generation website with no ongoing Labe subscription.",
+            },
+          },
+          quantity: 1,
+        },
+      ];
+
+  if (addOns.includes("google_ads")) {
+    lineItems.push(oneTimeAddOn("Google Ads setup", 75000));
+  }
+
+  if (addOns.includes("meta_ads")) {
+    lineItems.push(oneTimeAddOn("Meta Ads setup", 75000));
+  }
+
+  if (addOns.includes("ads_bundle")) {
+    lineItems.push(
+      oneTimeAddOn("Google + Meta Ads bundle", 125000, "Bundle saving: $250."),
+    );
+  }
+
+  if (!isGrowth && addOns.includes("ai_receptionist")) {
+    lineItems.push(
+      oneTimeAddOn(
+        "AI receptionist — setup",
+        29900,
+        "Initial AI receptionist setup and configuration. The provider subscription is paid separately by the customer.",
+      ),
+    );
+  }
 
   try {
     const session = await stripe.checkout.sessions.create({
-      mode: isGrowth ? "subscription" : "payment",
+      mode: hasRecurringCharge ? "subscription" : "payment",
       managed_payments: { enabled: false },
       branding_settings: {
         background_color: "#ffffff",
@@ -96,50 +197,23 @@ export async function POST(request: Request) {
       },
       customer_email: email,
       client_reference_id: crypto.randomUUID(),
-      line_items: isGrowth
-        ? [
-            {
-              price_data: {
-                currency: "aud",
-                unit_amount: 199900,
-                product_data: {
-                  name: "Labe Growth — setup",
-                  description:
-                    "Website, AI-assisted lead handling, booking, and automated follow-up setup.",
-                },
-              },
-              quantity: 1,
+      ...(hasRecurringCharge
+        ? {
+            subscription_data: {
+              trial_period_days: 7,
             },
-            {
-              price_data: {
-                currency: "aud",
-                unit_amount: 2499,
-                recurring: { interval: "month" },
-                product_data: {
-                  name: "Labe Growth — ongoing service",
-                  description:
-                    "Standard usage, ongoing checks, and minor content updates.",
-                },
-              },
-              quantity: 1,
-            },
-          ]
-        : [
-            {
-              price_data: {
-                currency: "aud",
-                unit_amount: 99900,
-                product_data: {
-                  name: "Labe Launch",
-                  description:
-                    "A focused 1–2 page lead-generation website with no ongoing Labe subscription.",
-                },
-              },
-              quantity: 1,
-            },
-          ],
+          }
+        : {}),
+      line_items: lineItems,
       metadata: {
         plan,
+        add_ons: addOns.join(",") || "None",
+        ai_receptionist:
+          isGrowth
+            ? "AI receptionist setup included; provider subscription paid separately"
+            : addOns.includes("ai_receptionist")
+              ? "Paid AI receptionist setup; provider subscription paid separately"
+              : "Not selected",
         name,
         business,
         phone,
@@ -170,4 +244,22 @@ export async function POST(request: Request) {
 
 function asText(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
+}
+
+function oneTimeAddOn(
+  name: string,
+  unitAmount: number,
+  description?: string,
+): Stripe.Checkout.SessionCreateParams.LineItem {
+  return {
+    price_data: {
+      currency: "aud",
+      unit_amount: unitAmount,
+      product_data: {
+        name,
+        ...(description ? { description } : {}),
+      },
+    },
+    quantity: 1,
+  };
 }

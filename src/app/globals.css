@@ -97,6 +97,44 @@ a {
   animation-delay: 0.4s;
 }
 
+.hero-system {
+  animation: hero-system-float 7s 1.2s ease-in-out infinite;
+}
+
+.hero-flow-card {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: hero-flow-reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-flow-card-1 {
+  animation-delay: 0.75s;
+}
+
+.hero-flow-card-2 {
+  animation-delay: 1.15s;
+}
+
+.hero-flow-card-3 {
+  animation-delay: 1.55s;
+}
+
+.hero-flow-pulse {
+  animation: hero-flow-travel 1.4s 0.9s ease-in-out infinite;
+}
+
+.hero-flow-pulse-2 {
+  animation-delay: 1.3s;
+}
+
+.hero-status-dot {
+  animation: hero-status-pulse 2s ease-in-out infinite;
+}
+
+.hero-ready-badge {
+  animation: hero-ready-glow 2.8s 1.7s ease-in-out infinite;
+}
+
 .beaker-bubble {
   transform-box: fill-box;
   transform-origin: center;
@@ -176,9 +214,14 @@ a {
   min-height: 2.75rem;
   transform: scaleY(0);
   transform-origin: bottom;
-  animation: bar-grow 0.85s var(--bar-delay)
-    cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transition: height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.conversion-bar-visible {
+  transform: scaleY(1);
+  transition-delay: 0ms, var(--bar-delay);
 }
 
 .benefit-card,
@@ -404,9 +447,55 @@ a {
   }
 }
 
-@keyframes bar-grow {
+@keyframes hero-flow-reveal {
   to {
-    transform: scaleY(1);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-flow-travel {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+
+@keyframes hero-system-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes hero-status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(52 211 153 / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgb(52 211 153 / 0.12);
+  }
+}
+
+@keyframes hero-ready-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(52 211 153 / 0);
+  }
+  50% {
+    box-shadow: 0 0 22px 3px rgb(52 211 153 / 0.18);
   }
 }
 
@@ -450,6 +539,51 @@ a {
 @keyframes confirmation-line {
   to {
     transform: scaleX(1);
+  }
+}
+
+.workflow-node {
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease;
+}
+
+.workflow-node:hover {
+  transform: translateY(-3px);
+  border-color: rgb(96 165 250 / 0.35);
+}
+
+.workflow-hub {
+  animation: workflow-float 5s ease-in-out infinite;
+}
+
+.workflow-signal {
+  animation: workflow-travel 3.2s ease-in-out infinite;
+}
+
+@keyframes workflow-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes workflow-travel {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(700%);
+    opacity: 0;
   }
 }
 

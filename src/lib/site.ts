@@ -4,5 +4,5 @@ export const siteConfig = {
   url: "https://labe.com.au",
   email: "hello@labe.com.au",
   description:
-    "Fast websites, practical AI solutions, and simple automated follow-up systems that help small businesses win more enquiries.",
+    "Modern websites, automated follow-up, and practical AI solutions. We help small businesses win more work with less admin.",
 } as const;

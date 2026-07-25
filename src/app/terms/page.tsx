@@ -93,21 +93,31 @@ const sections = [
     ),
   },
   {
-    title: "5. The 48-hour delivery period",
+    title: "5. Delivery timeframes",
     content: (
       <>
         <p>
-          Where your package includes 48-hour delivery, the delivery period
-          begins after we receive the required payment, content, instructions,
-          access, and approval to start. It applies to the agreed initial build
-          and excludes time spent waiting for your feedback, materials, or
-          approvals.
+          Labe Launch and Labe Growth include a website going live within 48
+          hours. Labe Growth includes the complete agreed automation system
+          within 5 business days. These priority periods apply only when the
+          package setup price and selected one-off add-ons due at checkout are
+          paid in full. They begin after we receive that payment, the required
+          content, instructions, access, and approval to start. They exclude
+          time spent waiting for your feedback, materials, or approvals.
+        </p>
+        <p>
+          If we agree to accept a deposit, instalments, or staged payments, the
+          project is scheduled into the next available waiting-list position
+          and the advertised priority delivery period does not apply. Future
+          monthly service fees do not need to be prepaid for priority status.
         </p>
         <p>
           A delay caused by you, a third-party platform, an outage, or an event
           outside our reasonable control pauses or reasonably extends the
-          delivery period. If the agreed scope requires a different timeframe,
-          we will state that before work begins.
+          delivery period. Advertising platforms, AI phone providers, account
+          verification, and other third-party add-ons may require additional
+          approval or processing time. If the agreed scope requires a different
+          timeframe, we will state that before work begins.
         </p>
       </>
     ),
@@ -142,6 +152,25 @@ const sections = [
           invoice. You must pay invoices by their stated due date.
         </p>
         <p>
+          The package and add-on prices displayed at checkout apply to that
+          order. Labe Growth is currently charged as a $2,999 setup payment and
+          a $149 monthly service beginning after a 7-day setup period. Labe&apos;s
+          AI receptionist setup and standard ongoing configuration are included
+          with an active Growth service. Labe currently uses Hey Jodie for this
+          service unless another provider is requested or agreed. We may use a
+          different suitable provider for new customers and may recommend or
+          arrange a provider change for an existing customer where reasonably
+          necessary. We will explain any material change, obtain the
+          customer&apos;s approval before migrating a customer-controlled
+          account, and confirm any changed provider fees before proceeding.
+          With Launch, the AI receptionist setup is currently $299 once. In
+          both cases, the customer creates or authorises the provider account
+          and pays the provider&apos;s subscription, usage charges, taxes, and
+          other fees directly. Advertising spend and any usage above an agreed
+          allowance are separate. Promotional prices apply only while the
+          relevant offer is displayed and available at checkout.
+        </p>
+        <p>
           We may pause work or withhold launch, transfer, or final files while
           an invoice is overdue, after giving you reasonable notice. This does
           not affect any rights you have under applicable law.
@@ -166,6 +195,14 @@ const sections = [
           for a third-party change, suspension, outage, or decision outside our
           reasonable control, but we will provide reasonable assistance where
           that assistance is included in your service or separately agreed.
+        </p>
+        <p>
+          Where Labe configures an AI receptionist, you remain responsible for
+          maintaining the provider account, paying the provider, keeping your
+          business information accurate, and using the service lawfully. Labe
+          may assist with configuration but does not control the provider&apos;s
+          pricing, service availability, call quality, features, or data
+          handling.
         </p>
       </>
     ),
@@ -411,7 +448,7 @@ export default function TermsPage() {
                 Labe.
               </p>
               <p className="mt-5 text-sm font-semibold text-slate-500">
-                Effective 23 July 2026
+                Effective 24 July 2026
               </p>
 
               <div className="mt-12 space-y-10">

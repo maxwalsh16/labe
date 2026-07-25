@@ -46,28 +46,41 @@ export default async function StartPage({
                 Ready when you are
               </p>
               <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.05em] text-slate-950 sm:text-5xl">
-                Pay now and reserve a priority build position.
+                Secure your priority build today.
               </h1>
               <p className="mt-6 text-lg leading-8 text-slate-600">
-                Choose your package, share the basics, and pay securely through
-                Stripe. Your detailed customisation happens after payment, with
-                Labe guiding you through every step.
+                We make the rest simple.
               </p>
 
               <div className="mt-8 space-y-4">
                 {[
-                  "Secure your place before completing the full content questionnaire",
-                  "Upload your logo and photos after payment",
-                  "Tell us your colours, services, wording, and preferences",
-                  "The 48-hour build starts once your content is complete and approved",
+                  {
+    text: "Pay in full today and jump the queue",
+    note: "Your secure Stripe payment locks in priority 48-hour delivery.",
+                  },
+                  {
+                    text: "Customise your website through guided onboarding",
+                    note: "Share your logo, photos, colours, services, wording, and preferences after payment.",
+                  },
+                  {
+                    text: "Go live in 48 hours",
+                    note: "Growth automation is completed within 5 business days. Add-ons needing third-party approval may take longer.",
+                  },
                 ].map((item, index) => (
-                  <div key={item} className="flex items-start gap-3">
+                  <div key={item.text} className="flex items-start gap-3">
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-black text-white">
                       {index + 1}
                     </span>
-                    <p className="pt-0.5 text-sm font-bold leading-6 text-slate-700">
-                      {item}
-                    </p>
+                    <div className="pt-0.5">
+                      <p className="text-sm font-bold leading-6 text-slate-700">
+                        {item.text}
+                      </p>
+                      {item.note && (
+                        <p className="mt-0.5 max-w-md text-xs leading-5 text-slate-500">
+                          {item.note}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -79,7 +92,8 @@ export default async function StartPage({
                 <p className="mt-2 text-sm leading-6 text-emerald-900/75">
                   Payment reserves your priority position. Your logo, photos,
                   content, and design choices are collected immediately
-                  afterwards.
+                  afterwards. Deposit or staged-payment projects are scheduled
+                  into the next available waiting-list position.
                 </p>
               </div>
             </div>

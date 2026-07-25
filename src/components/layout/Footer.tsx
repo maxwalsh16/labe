@@ -25,9 +25,8 @@ export function Footer() {
               <BeakerLogo inverse />
             </Link>
             <p className="mt-6 max-w-md text-pretty leading-7 text-slate-400">
-              Websites, automated follow-up, and practical AI solutions that
-              help small businesses win more enquiries and spend less time on
-              admin.
+              Modern websites, automated follow-up, and practical AI solutions.
+              We help small businesses win more work with less admin.
             </p>
             <p className="mt-6 text-sm font-semibold text-slate-500">
               Built in Adelaide, South Australia.

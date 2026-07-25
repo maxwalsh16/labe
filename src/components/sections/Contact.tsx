@@ -64,17 +64,23 @@ export function Contact() {
               ))}
             </ul>
 
+            <div className="mt-9 rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-sm leading-6 text-blue-50/90 backdrop-blur">
+              <strong className="font-black text-white">
+                Flexible payment is available.
+              </strong>{" "}
+              Deposits and staged payments can be arranged, with these projects
+              joining the next available waiting-list position. Paying in full
+              secures priority delivery.
+            </div>
+
             <div className="mt-10 border-t border-white/15 pt-8">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-100/70">
-                Prefer to call?
-              </p>
               <CallReceptionistButton
                 tone="blue"
-                className="mt-3 w-full sm:w-auto"
+                className="w-full sm:w-auto"
               />
             </div>
 
-            <div className="mt-8 border-t border-white/15 pt-8">
+            <div className="mt-6">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-100/70">
                 Prefer email?
               </p>

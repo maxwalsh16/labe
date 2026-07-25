@@ -1,6 +1,7 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CallReceptionistButton } from "@/components/ui/CallReceptionistButton";
 import { Container } from "@/components/ui/Container";
+import { OfferCountdown } from "@/components/ui/OfferCountdown";
 import {
   siAfterpay,
   siApplepay,
@@ -16,11 +17,13 @@ const launchFeatures = [
   "Tap-to-call, map, and social links",
   "Essential Google setup and visitor tracking",
   "One round of changes before launch",
-  "Built within 48 hours once we have your content",
+  "Priority 48-hour build when paid in full",
 ] as const;
 
 const growthFeatures = [
   "Everything included in Labe Launch",
+  "Website live within 48 hours when paid in full",
+  "Growth automation complete within 5 business days",
   "AI chat answers common questions, even when you are busy",
   "Asks about the service, location, timing, and other details you choose",
   "Turns every conversation into a clear lead summary",
@@ -28,6 +31,7 @@ const growthFeatures = [
   "Sends an immediate, professional reply with the right next step",
   "Offers suitable leads a booking link while they are ready to act",
   "Automatically follows up when an enquiry has not booked or replied",
+  "AI receptionist setup included—provider fees apply*",
   "Tracks which channels bring you the strongest leads",
   "Ongoing checks keep your lead system working properly",
   "Minor content updates included",
@@ -37,20 +41,20 @@ const addOns = [
   {
     title: "Google Ads",
     description:
-      "Reach people searching for your service, track enquiries, and improve the page they land on.",
-    pricing: "Quoted to scope",
+      "Reach people searching for your service, track enquiries, and improve the page they land on.*",
+    pricing: "$750 setup",
   },
   {
     title: "Meta Ads",
     description:
-      "Reach a relevant local audience on Facebook and Instagram and track the enquiries you receive.",
-    pricing: "Quoted to scope",
+      "Reach a relevant local audience on Facebook and Instagram and track the enquiries you receive.*",
+    pricing: "$750 setup",
   },
   {
     title: "AI receptionist",
     description:
-      "Answer missed calls, capture caller details, and route important enquiries through a suitable provider.",
-    pricing: "Provider + setup quote",
+      "Answer missed calls, capture caller details, and route important enquiries through a suitable AI phone provider. Setup is included with Growth. Provider fees apply.*",
+    pricing: "Included with Growth · $299 with Launch",
   },
   {
     title: "Extra content & pages",
@@ -104,7 +108,7 @@ export function Pricing() {
             <div className="mt-9 border-b border-slate-200 pb-9">
               <div className="flex items-end gap-2">
                 <span className="text-5xl font-black tracking-[-0.06em] text-slate-950 min-[360px]:text-6xl">
-                  $999
+                  $1,499
                 </span>
                 <span className="mb-2 text-sm font-bold text-slate-500">
                   once
@@ -113,7 +117,7 @@ export function Pricing() {
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 No ongoing Labe fee. Small future content updates are{" "}
                 <strong className="font-black text-slate-900">
-                  $50 per request
+                  $75 per request
                 </strong>
                 ; larger changes are quoted first.
               </p>
@@ -162,7 +166,7 @@ export function Pricing() {
             <div className="relative mt-9 border-b border-white/10 pb-9">
               <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
                 <span className="text-5xl font-black tracking-[-0.06em] min-[360px]:text-6xl">
-                  $1,999
+                  $2,999
                 </span>
                 <span className="mb-2 text-sm font-bold text-slate-400">
                   setup
@@ -170,8 +174,10 @@ export function Pricing() {
               </div>
               <p className="mt-3 text-sm leading-6 text-slate-300">
                 Then{" "}
-                <strong className="font-black text-white">$24.99/month</strong>{" "}
-                for standard usage, ongoing checks, and minor content updates.
+                <strong className="font-black text-white">$149/month</strong>{" "}
+                after a 7-day setup period, covering standard usage, ongoing
+                checks, AI receptionist configuration, and one minor content
+                update each month. AI receptionist provider fees apply.*
               </p>
             </div>
 
@@ -257,6 +263,74 @@ export function Pricing() {
               </article>
             ))}
           </div>
+
+          <article className="relative mt-4 overflow-hidden rounded-[2rem] border border-blue-500 bg-slate-950 p-6 text-white shadow-2xl shadow-blue-900/15 sm:p-8">
+            <div
+              aria-hidden="true"
+              className="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-blue-600/30 blur-3xl"
+            />
+            <div className="relative flex flex-col gap-7">
+              <div className="max-w-2xl">
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">
+                    Google + Meta Ads
+                  </p>
+                  <span className="rounded-full bg-gradient-to-r from-orange-500 to-rose-500 px-3 py-1 text-xs font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-orange-500/20">
+                    Weekly hot offer
+                  </span>
+                  <span className="rounded-full bg-blue-500 px-3 py-1 text-xs font-black text-white shadow-lg shadow-blue-500/20">
+                    Bundle &amp; save $250
+                  </span>
+                </div>
+                <h4 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">
+                  Reach customers while they search—and while they scroll.
+                </h4>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  Get both advertising channels set up with conversion
+                  tracking and a clear path back to your website, so every
+                  campaign works towards real enquiries.*
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-end sm:justify-between">
+                <OfferCountdown />
+                <div className="flex shrink-0 items-end gap-2 sm:flex-col sm:items-end sm:gap-1">
+                  <span className="text-4xl font-black tracking-[-0.05em]">
+                    $1,250
+                  </span>
+                  <span className="mb-1 text-sm font-bold text-slate-400 sm:mb-0">
+                    setup
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <p
+            id="ai-provider-note"
+            className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-xs leading-5 text-slate-600"
+          >
+            <strong className="block font-bold text-slate-700/85">
+              * Costs and responsibilities
+            </strong>
+            <span className="mt-2 block">
+              <strong className="font-semibold text-slate-700/85">
+                Google and Meta Ads:
+              </strong>{" "}
+              we professionally set up and target your campaigns, including
+              conversion tracking. You keep control of your ad spend and decide
+              when campaigns run. Ongoing management is available separately.
+            </span>
+            <span className="mt-2 block">
+              <strong className="font-semibold text-slate-700/85">
+                AI receptionist:
+              </strong>{" "}
+              we set up and tailor the receptionist to your business. You keep
+              control of the provider account and pay its service plan
+              directly, usually from about $99/month plus tax. Provider pricing
+              may change.
+            </span>
+          </p>
         </div>
 
         <div className="mx-auto mt-10 max-w-6xl rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
@@ -264,9 +338,13 @@ export function Pricing() {
             Prices are shown in AUD. Any applicable GST is confirmed in your
             proposal. Domain registration or renewal, advertising spend, and
             third-party usage or subscription charges are separate unless your
-            written proposal expressly includes them. The 48-hour build begins
-            after Labe receives all required content, access, and approval to
-            start.
+            written proposal expressly includes them. Your website goes live
+            within 48 hours, with Growth automation completed within 5 business
+            days, when the package setup price and selected one-off add-ons are
+            paid in full. Timelines begin after Labe receives all required
+            content, access, and approval to start. Deposit or staged-payment
+            projects enter the next available waiting-list position. Add-ons
+            involving third-party approval may require additional time.
           </p>
         </div>
       </Container>
