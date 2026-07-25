@@ -8,7 +8,7 @@ const promises = [
   },
   {
     title: "Live in 48h*",
-    detail: "Pay in full, send your content, and skip the waiting list.",
+    detail: "Pay in full to skip the waiting list and secure 48-hour website delivery.",
     icon: "speed",
   },
   {
@@ -112,9 +112,10 @@ export function StraightforwardPromise() {
         </div>
 
         <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-5 text-slate-500">
-          *The 48-hour timeframe covers your website once full payment and
-          content are received. Growth automation and add-ons are completed
-          separately, with time allowed for proper setup and testing.
+          *The 48-hour website turnaround begins once full payment and all
+          required content are received. Deposit and staged-payment projects
+          join the next available waiting-list position. Growth automation and
+          add-ons may require additional setup and testing time.
         </p>
       </Container>
     </section>
