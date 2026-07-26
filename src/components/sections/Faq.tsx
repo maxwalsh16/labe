@@ -9,7 +9,7 @@ const questions = [
   {
     question: "How quickly will my website and automation be ready?",
     answer:
-      "When the package setup price and selected one-off add-ons are paid in full, your website goes live within 48 hours. With Growth, the automation system is completed within 5 business days. Timelines begin once we have your completed questionnaire, content, images, required account access, and approval to start. Time spent waiting for missing details or feedback is not counted. Third-party add-ons may need additional approval time, which we confirm before work begins.",
+      "When the package setup price and selected one-off add-ons are paid in full, your website goes live within 48 hours. Growth inclusions and any selected add-ons are completed within 5 business days. After payment, we send your onboarding link by email. Timelines begin once we have your completed questionnaire, content, images, required account access, and approval to start. Time spent waiting for missing details or feedback is not counted. Some add-ons may need extra third-party approval time, which we confirm before work begins.",
   },
   {
     question: "What if I pay a deposit or use staged payments?",
@@ -19,7 +19,12 @@ const questions = [
   {
     question: "What are the current package and add-on prices?",
     answer:
-      "Labe Launch is $1,499 once. Labe Growth is $2,999 setup, followed by $149 per month after a 7-day setup period. Google Ads setup is $750, Meta Ads setup is $750, and the current Google + Meta bundle is $1,250. AI receptionist setup is included with Growth or costs $299 with Launch. The customer owns and pays for their AI phone provider subscription separately. Prices are in AUD; advertising spend, domains, and third-party costs are separate unless expressly included.",
+      "Labe Launch is $1,999 once. Labe Growth is $2,999 setup, followed by $149 per month after a 7-day setup period. With Launch, business email, a custom professional email template, and email automation are $599; Google Business Profile setup and optimisation is $349; and AI receptionist setup is $499. Google Ads setup is $750, Meta Ads setup is $750, and the current Google + Meta bundle is $1,250. Prices are in AUD. Advertising spend, domains, and third-party provider costs are separate unless we expressly include them.",
+  },
+  {
+    question: "What is included with Labe Growth?",
+    answer:
+      "Growth includes everything in Launch, plus a custom business email, professional email template and email automation; Google Business Profile setup and optimisation; AI receptionist setup; AI live chat setup; and Stripe payment setup. It is designed to help customers find you, get answers, share the right details, and take the next step while you stay focused on your work. Advertising spend and third-party provider costs remain separate.",
   },
   {
     question: "Does Labe Launch really have no monthly subscription?",
@@ -34,17 +39,17 @@ const questions = [
   {
     question: "Do I own the finished website?",
     answer:
-      "Yes. Once your project is paid in full, you own the finished website and the custom work created for your business. Labe keeps ownership of the reusable templates, components, systems, and tools used to build it, but you have an ongoing licence to use everything included in your website. Content you provide remains yours. Third-party services and assets follow their own licence terms.",
+      "Yes. Once your project is paid in full, you own your finished website, brand content, and materials created specifically for your business. Your domain, Google Business Profile, Stripe account, email account, AI receptionist account, AI chat account, email automation account, advertising accounts, and customer data remain yours. Labe keeps ownership of its reusable templates, components, internal systems, and processes. With Growth, you are paying for ongoing support, maintenance, automation management, and updates—not renting your website. If Growth ends, your website remains yours; we help you wind down or hand over the managed services.",
   },
   {
     question: "What does the Growth monthly fee cover?",
     answer:
-      "The $149 monthly fee begins seven days after checkout and covers ongoing checks, the standard usage listed in your proposal, AI receptionist configuration, and one minor content update each month, such as changing supplied text, an image, opening hours, or contact details. You do not prepay the monthly fee (or any other future recurring charge) to receive priority delivery. It does not include the subscription charged by the AI phone provider. Heavy usage, additional updates, larger website changes, or separate third-party software may cost extra, and you will see any additional cost before work begins.",
+      "The $149 monthly service starts seven days after checkout. It covers ongoing support, maintenance, automation management, and updates to keep your Growth setup running smoothly. This includes regular checks, upkeep of third-party services, and one minor content update each month—such as supplied text, an image, opening hours, or contact details. Priority delivery only requires the one-off setup payment to be paid in full; future monthly or provider fees do not need to be prepaid. Third-party subscriptions, higher usage, larger updates, or new tools are separate, and we explain any extra cost before work begins.",
   },
   {
     question: "Is the AI receptionist included in Growth?",
     answer:
-      "Yes—the Labe setup is included with Growth. We configure the AI receptionist around your business, services, common questions, lead details, notifications, and call flow, then show you how it works. You create or authorise the provider account and pay its subscription directly. With Launch, Labe’s receptionist setup costs $299 once, plus the separate provider subscription.",
+      "Yes—the Labe setup is included with Growth. We configure the AI receptionist around your business, services, common questions, lead details, notifications, and call flow, then show you how it works. You create or authorise the provider account and pay its subscription directly. Depending on the phone number, call forwarding, and routing setup you need, separate telco costs may also apply; we explain these before setup. With Launch, Labe’s receptionist setup costs $499 once, plus the separate provider subscription and any applicable telco costs.",
   },
   {
     question: "Are Google or Facebook advertising costs included?",

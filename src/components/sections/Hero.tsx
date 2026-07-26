@@ -37,8 +37,9 @@ export function Hero() {
             </h1>
 
             <p className="hero-enter hero-enter-3 mx-auto mt-8 max-w-2xl text-pretty text-lg leading-8 text-slate-600 sm:mt-12 sm:text-xl lg:mx-0 lg:mt-7">
-              One connected setup to win more customers and cut admin—without
-              the jargon, long timelines, or agency price tag.
+              Modern websites, automated follow-up, and practical AI
+              solutions. We help small businesses win more work with less
+              admin.
             </p>
 
             <div className="hero-enter hero-enter-4 mx-auto mt-10 flex w-full max-w-sm flex-col items-center gap-3 [&>a]:w-full sm:mx-0 sm:mt-14 sm:w-auto sm:max-w-none sm:flex-row sm:justify-center sm:[&>a]:w-auto lg:mt-9 lg:justify-start">

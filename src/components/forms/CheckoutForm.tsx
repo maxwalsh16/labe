@@ -3,19 +3,26 @@
 import { FormEvent, useState } from "react";
 
 type Plan = "launch" | "growth";
-type AddOn = "google_ads" | "meta_ads" | "ads_bundle" | "ai_receptionist";
+type AddOn =
+  | "business_email"
+  | "google_business_profile"
+  | "google_ads"
+  | "meta_ads"
+  | "ads_bundle"
+  | "ai_receptionist";
 
 const plans = {
   launch: {
     name: "Labe Launch",
-    price: "$1,499",
-    detail: "Website live in 48 hours. One payment, with no ongoing Labe subscription.",
+    price: "$1,999",
+    detail:
+      "Website live in 48 hours. Selected add-ons are completed within 5 business days. One payment, with no ongoing Labe subscription.",
   },
   growth: {
     name: "Labe Growth",
     price: "$2,999",
     detail:
-      "Website live in 48 hours; Growth automation within 5 business days. Then $149/month after a 7-day setup period.",
+      "Website live in 48 hours, with custom business email, a professional email template, email automation, Google Business Profile, AI receptionist, AI live chat, and Stripe payments set up within 5 business days. Then $149/month after a 7-day setup period.",
   },
 } as const;
 
@@ -25,7 +32,29 @@ const addOns: ReadonlyArray<{
   price: string;
   detail: string;
   featured?: boolean;
+  includedWithGrowth?: boolean;
+  includedDetail?: string;
 }> = [
+  {
+    id: "business_email",
+    name: "Business email, template & automation",
+    price: "$599 setup",
+    detail:
+      "Professional email on your domain, with a custom professional email template, automated replies, and follow-up.*",
+    includedWithGrowth: true,
+    includedDetail:
+      "We’ll set up your business email, custom professional email template, and automated replies. Email provider fees apply.*",
+  },
+  {
+    id: "google_business_profile",
+    name: "Google Business Profile",
+    price: "$349 setup",
+    detail:
+      "Set up or optimise your profile so local customers can find and contact you.",
+    includedWithGrowth: true,
+    includedDetail:
+      "We’ll set up and optimise your Google Business Profile for local visibility.",
+  },
   {
     id: "google_ads",
     name: "Google Ads setup",
@@ -48,8 +77,11 @@ const addOns: ReadonlyArray<{
   {
     id: "ai_receptionist",
     name: "AI receptionist",
-    price: "$299 setup with Launch",
+    price: "$499 setup with Launch",
     detail: "Included with Growth. Provider fees apply.*",
+    includedWithGrowth: true,
+    includedDetail:
+      "We’ll set up and tailor your AI receptionist. Provider fees apply.*",
   },
 ] as const;
 
@@ -59,11 +91,13 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [message, setMessage] = useState("");
   const oneTimeTotal =
-    (plan === "growth" ? 2999 : 1499) +
+    (plan === "growth" ? 2999 : 1999) +
+    (plan === "launch" && selectedAddOns.includes("business_email") ? 599 : 0) +
+    (plan === "launch" && selectedAddOns.includes("google_business_profile") ? 349 : 0) +
     (selectedAddOns.includes("google_ads") ? 750 : 0) +
     (selectedAddOns.includes("meta_ads") ? 750 : 0) +
     (selectedAddOns.includes("ads_bundle") ? 1250 : 0) +
-    (plan === "launch" && selectedAddOns.includes("ai_receptionist") ? 299 : 0);
+    (plan === "launch" && selectedAddOns.includes("ai_receptionist") ? 499 : 0);
   const monthlyTotal = plan === "growth" ? 149 : 0;
 
   function toggleAddOn(addOn: AddOn) {
@@ -198,6 +232,11 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
                 >
                   {option.detail}
                 </span>
+                {planKey === "growth" && (
+                  <span className="relative mt-4 inline-flex rounded-full bg-blue-500 px-2.5 py-1 text-[0.62rem] font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-blue-500/20">
+                    $4,444 value · save $1,445
+                  </span>
+                )}
               </label>
             );
           })}
@@ -209,13 +248,13 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
           2. Add anything else you need
         </legend>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Optional—choose now to include it in the same secure checkout, or add
-          it later after speaking with Labe.
+          Optional—select anything you would like included in your secure
+          checkout today.
         </p>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {addOns.map((addOn) => {
             const includedWithGrowth =
-              addOn.id === "ai_receptionist" && plan === "growth";
+              Boolean(addOn.includedWithGrowth) && plan === "growth";
             const selected =
               includedWithGrowth || selectedAddOns.includes(addOn.id);
 
@@ -298,7 +337,7 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
                   }`}
                 >
                   {includedWithGrowth
-                    ? "We’ll set up and tailor your AI receptionist. Provider fees apply.*"
+                    ? addOn.includedDetail
                     : addOn.detail}
                 </span>
               </label>
@@ -322,11 +361,21 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
           </span>
           <span className="mt-2 block">
             <strong className="font-semibold text-slate-700/85">
+              Business email:
+            </strong>{" "}
+            we set up your professional email, custom template, and
+            automation. You choose and pay the email provider plan directly;
+            pricing varies by provider.
+          </span>
+          <span className="mt-2 block">
+            <strong className="font-semibold text-slate-700/85">
               AI receptionist:
             </strong>{" "}
             we set up and tailor the receptionist to your business. You keep
             control of the provider account and pay its service plan directly,
-            usually from about $99/month plus tax. Provider pricing may change.
+            usually from about $99/month plus tax. Separate telco costs may
+            apply for phone numbers, call forwarding, or routing. We confirm
+            expected provider and telco costs before setup.
           </span>
         </p>
       </fieldset>
@@ -445,9 +494,10 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
           Your content comes after payment
         </p>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          You do not need everything ready today. After payment, Labe will
-          collect your logo, photos, colours, wording, service details, and
-          other customisation through a simple guided onboarding process.
+          You do not need everything ready today. After successful payment,
+          check your inbox for a welcome email with your onboarding link. It
+          makes it simple to send your logo, photos, colours, wording, service
+          details, and other customisation when you are ready.
         </p>
       </div>
 
@@ -478,9 +528,7 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
           , and understand that after Labe receives my required content and
           approval to start, the advertised priority timelines apply because
           the package setup price and selected one-off add-ons are being paid
-          in full. Deposit or staged-payment arrangements enter the next
-          available waiting-list position. Third-party add-ons may require
-          additional approval time.
+          in full. Third-party add-ons may require additional approval time.
         </span>
       </label>
 

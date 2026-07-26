@@ -59,12 +59,12 @@ export default async function StartPage({
     note: "Your secure Stripe payment locks in priority 48-hour delivery.",
                   },
                   {
-                    text: "Customise your website through guided onboarding",
-                    note: "Share your logo, photos, colours, services, wording, and preferences after payment.",
+                    text: "Check your inbox for your onboarding link",
+                    note: "Your welcome email makes it simple to share your logo, photos, colours, services, wording, and preferences.",
                   },
                   {
                     text: "Go live in 48 hours",
-                    note: "Growth automation is completed within 5 business days. Add-ons needing third-party approval may take longer.",
+                    note: "Growth inclusions and selected add-ons are completed within 5 business days. Add-ons needing third-party approval may take longer.",
                   },
                 ].map((item, index) => (
                   <div key={item.text} className="flex items-start gap-3">
@@ -90,10 +90,9 @@ export default async function StartPage({
                   Nothing to upload yet
                 </p>
                 <p className="mt-2 text-sm leading-6 text-emerald-900/75">
-                  Payment reserves your priority position. Your logo, photos,
-                  content, and design choices are collected immediately
-                  afterwards. Deposit or staged-payment projects are scheduled
-                  into the next available waiting-list position.
+                  Payment reserves your priority position. Your welcome email
+                  includes an onboarding link for your logo, photos, content,
+                  and design choices.
                 </p>
               </div>
             </div>

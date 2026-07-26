@@ -1,13 +1,14 @@
 import { BeakerLogo } from "@/components/brand/BeakerLogo";
 import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Stripe from "stripe";
 
 export const metadata: Metadata = {
-  title: "Payment received",
-  description: "Your Labe project has been reserved.",
+  title: "Payment confirmed",
+  description: "Your Labe priority build position has been reserved.",
   robots: { index: false, follow: false },
 };
 
@@ -75,24 +76,122 @@ export default async function CheckoutSuccessPage({
                 </svg>
               </span>
               <p className="mt-7 text-sm font-black uppercase tracking-[0.2em] text-blue-300">
-                Payment received
+                Payment confirmed
               </p>
               <h1 className="mt-3 text-balance text-4xl font-black tracking-[-0.05em] sm:text-5xl">
-                You&apos;re booked in for priority delivery.
+                Your priority build is locked in.
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                We&apos;ll contact you within one business day and guide you
-                through the next steps. For now, gather your logo, photos,
-                services, colours, and preferred wording. Your priority
-                turnaround is locked in.
+                You do not need to have everything ready yet. Take a breath—we
+                will guide you through the rest, one simple step at a time.
               </p>
+
+              <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/[0.055] p-6 text-left sm:p-8">
+                <div className="flex max-w-xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
+                  <Image
+                    src="/images/max-walsh.jpg"
+                    alt="Max Walsh, your Labe project manager"
+                    width={80}
+                    height={80}
+                    className="h-20 w-20 shrink-0 rounded-full border-2 border-blue-300/30 object-cover object-center"
+                  />
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">
+                      Meet your project manager
+                    </p>
+                    <h2 className="mt-1.5 text-2xl font-black text-white">
+                      Max Walsh
+                    </h2>
+                    <p className="mt-1 text-sm font-bold text-blue-200">
+                      Senior Project Manager
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                      Has been selected as your direct contact from onboarding
+                      through to launch.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-5">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                    Personal details
+                  </p>
+                  <div className="mt-2 flex flex-col gap-1 text-sm leading-6 text-slate-300">
+                    <a
+                      href="sms:0432076236"
+                      className="w-fit font-bold text-white underline decoration-blue-400/70 underline-offset-4 transition-colors hover:text-blue-200"
+                    >
+                      0432 076 236 <span className="font-normal text-slate-400">(Text preferred)</span>
+                    </a>
+                    <a
+                      href="mailto:business.maxwalsh@gmail.com"
+                      className="w-fit break-words font-bold text-white underline decoration-blue-400/70 underline-offset-4 transition-colors hover:text-blue-200"
+                    >
+                      business.maxwalsh@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <p className="mt-5 border-y border-white/10 py-4 text-center text-xs leading-5 text-slate-400">
+                  For urgent matters, Max will call from Labe on 0414 785 829.
+                </p>
+                <div className="mt-7 grid gap-7 sm:grid-cols-2 sm:gap-8">
+                  <section>
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300 sm:min-h-10">
+                      A bit about me
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">
+                      Hi, I&apos;m Max, Labe&apos;s Senior Project Manager. I grew up
+                      across Adelaide, Whyalla, and the Gold Coast, and now
+                      live back in South Australia with my wife and daughter.
+                      My background is in sales and management, and I hold a
+                      Certificate IV in New Small Business from TAFE SA.
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">
+                      Outside Labe, I&apos;m a long-time music producer, footy and
+                      sport fanatic, and proud supporter of South Australian
+                      food, wine, and local producers.
+                    </p>
+                  </section>
+                  <section>
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300 sm:min-h-10">
+                      What I bring to your project
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">
+                      I work hands-on across web development, AI, and
+                      automation. My job is to understand how your business
+                      works, build the right setup around it, and explain it
+                      simply.
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">
+                      You do not need to be technical or have everything
+                      figured out. I&apos;ll guide you through each step, make sure
+                      you know what happens next, and do everything I can to
+                      make the process easy.
+                    </p>
+                  </section>
+                </div>
+                <p className="mt-6 text-center text-xs leading-5 text-slate-400">
+                  Max&apos;s details will be included in your welcome email.
+                </p>
+              </div>
 
               <div className="mt-9 grid gap-4 text-left sm:grid-cols-3">
                 {[
-                  ["1", "Look out for your welcome email"],
-                  ["2", "Send us your business details, logo, and photos"],
-                  ["3", "Confirm everything, and your priority build begins"],
-                ].map(([number, text]) => (
+                  [
+                    "1",
+                    "Your welcome email arrives",
+                    "It includes your onboarding link and clear next steps.",
+                  ],
+                  [
+                    "2",
+                    "Send us what you have",
+                    "Logo, photos, services, and preferences—we make the rest simple.",
+                  ],
+                  [
+                    "3",
+                    "We take it from here",
+                    "We review your details, confirm anything needed, and start your build.",
+                  ],
+                ].map(([number, title, detail]) => (
                   <div
                     key={number}
                     className="confirmation-step relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-5 pb-6"
@@ -101,7 +200,10 @@ export default async function CheckoutSuccessPage({
                       Step {number}
                     </span>
                     <p className="mt-2 text-sm font-bold leading-6 text-white">
-                      {text}
+                      {title}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-slate-300">
+                      {detail}
                     </p>
                   </div>
                 ))}
@@ -111,28 +213,30 @@ export default async function CheckoutSuccessPage({
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">
-                      When will you hear from us?
+                      You&apos;re looked after
                     </p>
                     <p className="mt-2 text-base font-black leading-7 text-white">
-                      We&apos;ll email you within one business day with
-                      everything we need to get started.
+                      Your welcome email includes your private onboarding link
+                      and everything you need to know.
                     </p>
                     <p className="mt-2 text-sm leading-6 text-slate-300">
                       {email
-                        ? `Your Stripe receipt and project updates will be sent to ${email}.`
-                        : "Your Stripe receipt and project updates will be sent to the email used at checkout."}
+                        ? `Your Stripe receipt and welcome email will be sent to ${email}. If you cannot see them shortly, check your spam folder or contact us.`
+                        : "Your Stripe receipt and welcome email will be sent to the email used at checkout. If you cannot see them shortly, check your spam folder or contact us."}
                     </p>
                   </div>
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">
-                      Standard office hours
+                      What Labe does next
                     </p>
                     <p className="mt-2 text-base font-black leading-7 text-white">
-                      Monday–Friday, 9:00 am–5:00 pm
+                      We review your onboarding and guide you from there.
                     </p>
                     <p className="mt-2 text-sm leading-6 text-slate-300">
-                      Adelaide time, excluding national and South Australian
-                      public holidays.
+                      Your priority timeline begins once we have your completed
+                      details and approval to start. We are here Monday–Friday,
+                      9:00 am–5:00 pm Adelaide time, excluding national and
+                      South Australian public holidays.
                     </p>
                   </div>
                 </div>

@@ -1,6 +1,27 @@
 import { BeakerLogo } from "@/components/brand/BeakerLogo";
 import { Container } from "@/components/ui/Container";
 
+const workflowSteps = [
+  {
+    number: "01",
+    title: "We get to know your business",
+    description:
+      "How you price, quote, book, and decide which enquiries are worth your time.",
+  },
+  {
+    number: "02",
+    title: "Customers and AI do the groundwork",
+    description:
+      "Clear answers, useful details, and the right next step are handled before you need to get involved.",
+  },
+  {
+    number: "03",
+    title: "You take it from there",
+    description:
+      "Spend less time chasing enquiries and more time quoting, closing, and getting jobs done.",
+  },
+] as const;
+
 export function Benefits() {
   return (
     <section className="relative overflow-hidden bg-white py-24 sm:py-40 lg:py-32">
@@ -8,7 +29,7 @@ export function Benefits() {
         <div className="grid items-end gap-10 sm:gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-600">
-              Made for busy owners
+              Built for busy owners
             </p>
             <h2 className="mt-4 max-w-3xl text-balance text-4xl font-black tracking-[-0.045em] text-slate-950 sm:text-6xl">
               Technology that works for your business—not the other way around.
@@ -21,7 +42,54 @@ export function Benefits() {
           </p>
         </div>
 
-        <div className="relative mt-16 overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 px-5 py-7 text-white shadow-[0_30px_80px_rgba(15,23,42,0.2)] sm:mt-24 sm:px-9 sm:py-10 lg:mt-14 lg:px-10">
+        <div className="mt-16 grid gap-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-6 sm:mt-24 sm:p-10 lg:mt-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-14">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+              Built around how you operate
+            </p>
+            <h3 className="mt-3 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 sm:text-4xl">
+              Stay ahead without having to become a tech expert.
+            </h3>
+            <p className="mt-5 max-w-xl text-pretty leading-7 text-slate-600">
+              Customer expectations are changing quickly. Businesses that are
+              easy to find, easy to deal with, and quick to respond are the
+              ones that stand out.
+            </p>
+            <p className="mt-4 max-w-xl text-pretty leading-7 text-slate-600">
+              Labe helps make sure yours is one of them. We get to know how
+              you price, quote, book, and follow up, then tailor your website,
+              AI, and automated follow-up around it. We handle the setup and
+              show you how it works, so you can keep focusing on the work.
+            </p>
+          </div>
+
+          <div className="grid gap-3">
+            {workflowSteps.map((step) => (
+              <div
+                key={step.number}
+                className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-900/[0.03] sm:p-5"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-xs font-black text-white shadow-lg shadow-blue-600/20">
+                  {step.number}
+                </span>
+                <div>
+                  <strong className="text-sm font-black text-slate-950 sm:text-base">
+                    {step.title}
+                  </strong>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+            <p className="rounded-2xl bg-blue-600 px-5 py-4 text-sm font-black leading-6 text-white shadow-lg shadow-blue-600/20">
+              Give customers a reason to choose you first—without adding
+              another job to your day.
+            </p>
+          </div>
+        </div>
+
+        <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 px-5 py-7 text-white shadow-[0_30px_80px_rgba(15,23,42,0.2)] sm:mt-14 sm:px-9 sm:py-10 lg:px-10">
           <div
             aria-hidden="true"
             className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]"
@@ -33,7 +101,7 @@ export function Benefits() {
 
           <div className="relative text-center">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">
-              One connected workflow
+              Inside Labe Growth
             </p>
             <h3 className="mt-3 text-balance text-2xl font-black tracking-[-0.035em] sm:text-4xl">
               Everything working together around your business.
@@ -118,29 +186,6 @@ export function Benefits() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-3xl border border-blue-100 bg-blue-50/70 px-6 py-7 sm:mt-16 sm:flex-row sm:items-center sm:px-10 sm:py-9 lg:mt-8 lg:px-8 lg:py-6">
-          <div className="flex items-start gap-4">
-            <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
-              <OwnershipIcon />
-            </span>
-            <div>
-              <strong className="block text-lg font-black text-slate-950">
-                You stay in control.
-              </strong>
-              <p className="mt-1 text-sm leading-6 text-slate-600">
-                Your website belongs to you. There is no lock-in or Labe-only
-                builder, and every third-party cost is explained before we
-                begin.
-              </p>
-            </div>
-          </div>
-          <a
-            href="#pricing"
-            className="shrink-0 text-sm font-black text-blue-700 transition-colors hover:text-blue-900"
-          >
-            See what is included <span aria-hidden="true">→</span>
-          </a>
-        </div>
       </Container>
     </section>
   );
@@ -266,26 +311,6 @@ function TimeIcon() {
         d="M12 7.5V12l3 2"
         stroke="currentColor"
         strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function OwnershipIcon() {
-  return (
-    <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 20 20" fill="none">
-      <path
-        d="M10 2.5 16 5v4.6c0 3.8-2.5 6.3-6 7.9-3.5-1.6-6-4.1-6-7.9V5l6-2.5Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m7.2 10 1.8 1.8 3.8-4"
-        stroke="currentColor"
-        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

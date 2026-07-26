@@ -16,29 +16,35 @@ const launchFeatures = [
   "Your custom domain connected",
   "Quote, contact, or booking request form",
   "Tap-to-call, map, and social links",
-  "Essential Google setup and visitor tracking",
+  "Essential Google setup for higher ranking",
   "One round of changes before launch",
-  "Priority 48-hour build when paid in full",
+  "Website live in 48 hours when paid in full",
 ] as const;
 
 const growthFeatures = [
   "Everything included in Labe Launch",
-  "Website live within 48 hours when paid in full",
-  "Growth automation complete within 5 business days",
-  "AI chat answers common questions, even when you are busy",
-  "Asks about the service, location, timing, and other details you choose",
-  "Turns every conversation into a clear lead summary",
-  "Highlights urgent and better-matched enquiries so you know who to call first",
-  "Sends an immediate, professional reply with the right next step",
-  "Offers suitable leads a booking link while they are ready to act",
-  "Automatically follows up when an enquiry has not booked or replied",
-  "AI receptionist setup included—provider fees apply*",
-  "Tracks which channels bring you the strongest leads",
-  "Ongoing checks keep your lead system working properly",
-  "Minor content updates included",
+  "Website live in 48 hours when paid in full",
+  "Project completed within 5 business days",
+  "Custom business email, professional email template & automation*",
+  "Google Business Profile setup and optimisation",
+  "AI receptionist setup*",
+  "AI live chat setup",
+  "Stripe payment setup",
 ] as const;
 
 const addOns = [
+  {
+    title: "Business email, template & automation",
+    description:
+      "Set up a professional email address on your domain, with a custom professional email template, automated replies, and follow-up designed around the way you work.*",
+    pricing: "Included with Growth · $599 with Launch",
+  },
+  {
+    title: "Google Business Profile",
+    description:
+      "Set up or optimise your Google Business Profile so local customers can find, trust, and contact you more easily.",
+    pricing: "Included with Growth · $349 with Launch",
+  },
   {
     title: "Google Ads",
     description:
@@ -55,7 +61,7 @@ const addOns = [
     title: "AI receptionist",
     description:
       "Never lose a lead to a missed call. Your AI receptionist answers, collects caller details, and sends important enquiries straight to you. Setup is included with Growth. Provider fees apply.*",
-    pricing: "Included with Growth · $299 with Launch",
+    pricing: "Included with Growth · $499 with Launch",
   },
   {
     title: "Extra content & pages",
@@ -81,9 +87,9 @@ export function Pricing() {
             Choose the setup that suits your business now.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-600">
-            Launch gives customers a professional place to contact you. Growth
-            helps answer, qualify, prioritise, and follow up those enquiries
-            automatically.
+            Launch gives customers a professional, easy way to contact you.
+            Growth helps answer enquiries, identify the right leads, and keep
+            them moving towards payment—automatically.
           </p>
         </div>
 
@@ -109,7 +115,7 @@ export function Pricing() {
             <div className="mt-9 border-b border-slate-200 pb-9">
               <div className="flex items-end gap-2">
                 <span className="text-5xl font-black tracking-[-0.06em] text-slate-950 min-[360px]:text-6xl">
-                  $1,499
+                  $1,999
                 </span>
                 <span className="mb-2 text-sm font-bold text-slate-500">
                   once
@@ -176,20 +182,57 @@ export function Pricing() {
               <p className="mt-3 text-sm leading-6 text-slate-300">
                 Then{" "}
                 <strong className="font-black text-white">$149/month</strong>{" "}
-                after a 7-day setup period, covering standard usage, ongoing
-                checks, AI receptionist configuration, and one minor content
-                update each month. AI receptionist provider fees apply.*
+                after a 7-day setup period for ongoing care, support, and one
+                monthly content update. Provider fees apply.*
               </p>
+            </div>
+
+            <div className="relative mt-6 rounded-2xl border border-blue-400/25 bg-blue-500/10 p-5">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-blue-300">
+                The smarter way to get it sorted
+              </p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-5">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
+                    Set up separately
+                  </p>
+                  <p className="mt-1 text-3xl font-black tracking-tight text-slate-500 line-through decoration-2 decoration-blue-400/90 sm:text-4xl">
+                    $4,444
+                  </p>
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="hidden h-10 w-px bg-white/15 sm:block"
+                />
+                <div className="sm:text-right">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue-300">
+                    With Labe Growth
+                  </p>
+                  <p className="mt-1 text-4xl font-black tracking-tight text-white sm:text-5xl">
+                    $2,999
+                  </p>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4">
+                <p className="max-w-sm text-xs leading-5 text-slate-300">
+                  Launch website, business email, professional email template,
+                  Google Business Profile, AI receptionist, AI live chat, and
+                  Stripe payment setup.
+                </p>
+                <span className="rounded-full bg-blue-500 px-3 py-1.5 text-xs font-black text-white shadow-lg shadow-blue-500/20">
+                  Save $1,445 in setup
+                </span>
+              </div>
             </div>
 
             <div className="relative mt-7 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5">
               <p className="text-xs font-black uppercase tracking-[0.16em] text-blue-300">
-                Your lead system keeps working
+                What the $149/month keeps running
               </p>
               <p className="mt-2 text-sm leading-6 text-slate-200">
-                While you are on a job, with a customer, or finished for the
-                day, Growth can answer the first questions, collect the details
-                that matter, and move suitable leads towards payment.
+                We keep everything running smoothly, provide great support, and
+                include one monthly content update. Separate provider costs
+                apply.*
               </p>
             </div>
 
@@ -236,18 +279,19 @@ export function Pricing() {
         </div>
 
         <div id="add-ons" className="mx-auto mt-16 max-w-6xl scroll-mt-28">
-          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
-                Optional add-ons
-              </p>
-              <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-950">
-                Add help where it makes a difference.
-              </h3>
-            </div>
-            <p className="max-w-md text-sm leading-6 text-slate-500">
-              You see and approve the price before work begins. Advertising
-              spend is always separate.
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+              Add-ons & Growth inclusions
+            </p>
+            <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-950">
+              Add help where it makes a difference.
+            </h3>
+            <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-500">
+              Growth includes business email, a custom professional email
+              template &amp; email automation, Google Business Profile, AI
+              receptionist setup, AI live chat setup, and Stripe payment
+              setup. Advertising spend and third-party costs are always
+              separate.
             </p>
           </div>
 
@@ -329,14 +373,23 @@ export function Pricing() {
               conversion tracking. You keep control of your ad spend and decide
               when campaigns run. Ongoing management is available separately.
             </span>
+          <span className="mt-2 block">
+              <strong className="font-semibold text-slate-700/85">
+                Business email:
+              </strong>{" "}
+              we set up your professional email, custom template, and
+              automation. You choose and pay the email provider plan directly;
+              pricing varies by provider.
+            </span>
             <span className="mt-2 block">
               <strong className="font-semibold text-slate-700/85">
                 AI receptionist:
               </strong>{" "}
               we set up and tailor the receptionist to your business. You keep
               control of the provider account and pay its service plan
-              directly, usually from about $99/month plus tax. Provider pricing
-              may change.
+              directly, usually from about $99/month plus tax. Separate telco
+              costs may apply for phone numbers, call forwarding, or routing.
+              We confirm expected provider and telco costs before setup.
             </span>
           </p>
         </div>
@@ -347,12 +400,13 @@ export function Pricing() {
             proposal. Domain registration or renewal, advertising spend, and
             third-party usage or subscription charges are separate unless your
             written proposal expressly includes them. Your website goes live
-            within 48 hours, with Growth automation completed within 5 business
-            days, when the package setup price and selected one-off add-ons are
-            paid in full. Timelines begin after Labe receives all required
-            content, access, and approval to start. Deposit or staged-payment
-            projects enter the next available waiting-list position. Add-ons
-            involving third-party approval may require additional time.
+            within 48 hours, with Growth inclusions and selected add-ons
+            completed within 5 business days, when the package setup price and
+            selected one-off add-ons are paid in full. Timelines begin after
+            Labe receives all required content, access, and approval to start.
+            Deposit or staged-payment projects enter the next available
+            waiting-list position. Add-ons involving third-party approval may
+            require additional time.
           </p>
         </div>
       </Container>

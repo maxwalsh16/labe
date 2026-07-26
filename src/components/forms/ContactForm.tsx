@@ -143,7 +143,7 @@ export function ContactForm() {
             <option value="" disabled>
               Choose what sounds closest
             </option>
-            <option value="launch">Labe Launch — $1,499</option>
+            <option value="launch">Labe Launch — $1,999</option>
             <option value="growth">Labe Growth — $2,999 + $149/month</option>
             <option value="google-ads">Google Ads setup — $750</option>
             <option value="meta-ads">Meta Ads setup — $750</option>
@@ -151,7 +151,7 @@ export function ContactForm() {
               Google + Meta bundle — currently $1,250
             </option>
             <option value="receptionist">
-              AI receptionist — included with Growth, or $299 setup with Launch
+              AI receptionist — included with Growth, or $499 setup with Launch
             </option>
             <option value="unsure">Not sure yet</option>
           </select>

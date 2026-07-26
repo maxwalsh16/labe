@@ -105,7 +105,7 @@ export function ConversionSimulator() {
             Make every website visit count
           </p>
           <h2 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] sm:text-6xl">
-            Win more enquiries from the visitors you already have.
+            Win more enquiries with a website built to convert.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-300">
             Choose your business type and monthly visitors to see how many
@@ -282,6 +282,7 @@ export function ConversionSimulator() {
             </p>
           </div>
         </div>
+
       </Container>
     </section>
   );

@@ -33,12 +33,14 @@ export function Contact() {
               Make it easier for customers to choose you.
             </h2>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-8 text-blue-50/85">
-              Tell us what your business does, what is not working online, and
-              where you are losing time or enquiries. We will recommend the
-              simplest useful next step.
+              Tell us where you want more customers or less admin. We’ll
+              recommend the simplest way to get there.
             </p>
 
-            <ul className="mt-9 space-y-4">
+            <p className="mt-9 text-sm font-black uppercase tracking-[0.18em] text-blue-100">
+              We&apos;re here to help
+            </p>
+            <ul className="mt-4 space-y-4">
               {promises.map((promise) => (
                 <li
                   key={promise}

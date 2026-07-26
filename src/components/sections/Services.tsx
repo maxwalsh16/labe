@@ -1,7 +1,9 @@
-import { Container } from "@/components/ui/Container";
-import type { ReactNode } from "react";
+"use client";
 
-const services: Array<{
+import { Container } from "@/components/ui/Container";
+import { useState, type ReactNode } from "react";
+
+type Service = {
   title: string;
   description: string;
   tag: string;
@@ -11,32 +13,88 @@ const services: Array<{
   dark?: boolean;
   accent?: boolean;
   highlights?: readonly string[];
-}> = [
+  expandableOnDesktop?: boolean;
+  detailsExpanded?: boolean;
+  onToggleDetails?: () => void;
+};
+
+const packages: Service[] = [
   {
-    title: "Lead-generation websites",
+    title: "Websites that win work",
     description:
-      "A fast, professional website that makes it easy for customers to call, request a quote, or book.",
+      "A fast, professional website that makes it easy for customers to understand your business, call, request a quote, or book.",
     tag: "Labe Launch",
     href: "#launch-plan",
     icon: "browser",
-    className: "lg:col-span-2",
+    className: "",
     accent: true,
   },
   {
-    title: "Turn more enquiries into paying customers",
+    title: "Keep enquiries moving while you work.",
     description:
-      "Growth answers the first questions, collects the details that matter, and keeps suitable leads moving towards payment—even when you are busy.",
+      "AI chat, an AI receptionist, email automation, and Stripe payments help enquiries move forward while you are busy doing the job.",
     tag: "Labe Growth",
     href: "#growth-plan",
     icon: "spark",
-    className: "lg:row-span-2",
+    className: "",
     dark: true,
-    highlights: ["Answers", "Qualifies", "Follows up"],
+    highlights: ["AI chat", "AI receptionist", "Stripe payments"],
   },
+];
+
+const growthInclusions: Service[] = [
+  {
+    title: "Custom business email",
+    description:
+      "Look professional from the first reply, with your own business email, custom professional email template, and automated follow-up ready to go.",
+    tag: "Growth inclusion",
+    href: "#growth-plan",
+    icon: "mail",
+    className: "",
+  },
+  {
+    title: "Google Business Profile",
+    description:
+      "Show customers the right business details when they find you on Google, including your services, hours, and contact options.",
+    tag: "Growth inclusion",
+    href: "#growth-plan",
+    icon: "pin",
+    className: "",
+  },
+  {
+    title: "AI receptionist",
+    description:
+      "Make sure every caller gets an answer. Your AI receptionist captures their details and sends important enquiries straight to you.",
+    tag: "Growth inclusion",
+    href: "#growth-plan",
+    icon: "phone",
+    className: "",
+  },
+  {
+    title: "AI live chat",
+    description:
+      "Give website visitors quick answers, collect the details you need, and make it easier for them to take the next step.",
+    tag: "Growth inclusion",
+    href: "#growth-plan",
+    icon: "chat",
+    className: "",
+  },
+  {
+    title: "Stripe payment setup",
+    description:
+      "Give customers a simple, secure way to pay a deposit or invoice online when they are ready to move forward.",
+    tag: "Growth inclusion",
+    href: "#growth-plan",
+    icon: "card",
+    className: "",
+  },
+];
+
+const addOns: Service[] = [
   {
     title: "Google Ads",
     description:
-      "Reach people already searching for your service and send them to a page built to turn clicks into enquiries.",
+      "Reach people actively searching for your service and send them straight to a page built to win enquiries.",
     tag: "Add-on",
     href: "#add-ons",
     icon: "search",
@@ -45,28 +103,19 @@ const services: Array<{
   {
     title: "Facebook & Instagram Ads",
     description:
-      "Put your business in front of the right local audience and track which ads lead to real enquiries.",
+      "Reach the right local customers, stay top of mind, and turn attention into real enquiries.",
     tag: "Add-on",
     href: "#add-ons",
     icon: "megaphone",
     className: "",
   },
   {
-    title: "Booking & email automation",
+    title: "Extra content & pages",
     description:
-      "Send confirmations, reminders, and automated follow-up messages so fewer leads go cold.",
-    tag: "Growth feature",
-    href: "#growth-plan",
-    icon: "flow",
-    className: "lg:col-span-2",
-  },
-  {
-    title: "AI receptionist",
-    description:
-      "When you can’t answer, your AI receptionist can. It handles common questions, captures caller details, and sends important enquiries straight to you. Setup is included with Growth.",
-    tag: "Growth feature",
-    href: "#growth-plan",
-    icon: "phone",
+      "Add more services, locations, written content, or page sections as your business grows.",
+    tag: "Add-on",
+    href: "#add-ons",
+    icon: "browser",
     className: "",
   },
 ];
@@ -74,12 +123,18 @@ const services: Array<{
 type IconName =
   | "browser"
   | "spark"
+  | "mail"
+  | "pin"
   | "search"
   | "megaphone"
-  | "flow"
-  | "phone";
+  | "phone"
+  | "chat"
+  | "card";
 
 export function Services() {
+  const [areGrowthDetailsExpanded, setAreGrowthDetailsExpanded] =
+    useState(false);
+
   return (
     <section id="services" className="bg-slate-50 py-24 sm:py-32">
       <Container>
@@ -91,16 +146,74 @@ export function Services() {
             Your website, AI, and advertising—all working together.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-600">
-            We bring your website, enquiries, bookings, AI receptionist,
-            automated follow-up, and advertising together—so you can win more
-            work with less admin.
+            One connected setup to get your business found, turn more enquiries
+            into customers, get paid faster, and spend less time on admin.
           </p>
         </div>
 
-        <div className="mt-14 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+        <div className="mt-14">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
+            Our packages
+          </p>
+          <div className="mt-5 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2">
+            {packages.map((service) => (
+              <ServiceCard key={service.title} {...service} />
+            ))}
+          </div>
+        </div>
+
+        <div className="relative mt-7 overflow-hidden rounded-[2rem] border border-blue-200 bg-blue-50/60 p-5 sm:p-8">
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-0 h-8 w-px -translate-x-1/2 bg-blue-300"
+          />
+          <div className="relative">
+            <div className="grid gap-4 sm:grid-cols-2 sm:items-end sm:gap-8">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+                  Growth inclusions
+                </p>
+                <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-950">
+                  Everything working behind the website.
+                </h3>
+              </div>
+              <p className="max-w-md text-sm leading-6 text-slate-600 sm:justify-self-end">
+                Everything included with Growth to help more customers find
+                you, get answers fast, and move towards payment.
+              </p>
+            </div>
+            <div className="mt-8 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 lg:grid-cols-5">
+              {growthInclusions.map((service) => (
+                <ServiceCard
+                  key={service.title}
+                  {...service}
+                  expandableOnDesktop
+                  detailsExpanded={areGrowthDetailsExpanded}
+                  onToggleDetails={() =>
+                    setAreGrowthDetailsExpanded((expanded) => !expanded)
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
+            Add-ons
+          </p>
+          <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-950">
+            Bring in more customers when you are ready.
+          </h3>
+          <div className="mt-5 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {addOns.map((service) => (
             <ServiceCard key={service.title} {...service} />
-          ))}
+            ))}
+          </div>
         </div>
 
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-6 text-slate-500">
@@ -122,11 +235,26 @@ function ServiceCard({
   dark = false,
   accent = false,
   highlights,
-}: (typeof services)[number]) {
+  expandableOnDesktop = false,
+  detailsExpanded = false,
+  onToggleDetails,
+}: Service) {
   return (
-    <a
-      href={href}
-      className={`service-card group relative isolate min-w-0 min-h-72 overflow-hidden rounded-[2rem] border p-6 outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30 sm:p-8 ${className} ${
+    <article
+      role="link"
+      tabIndex={0}
+      onClick={(event) => {
+        if ((event.target as Element).closest("a, button")) return;
+        window.location.href = href;
+      }}
+      onKeyDown={(event) => {
+        if ((event.target as Element).closest("a, button")) return;
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = href;
+        }
+      }}
+      className={`service-card group relative isolate min-w-0 min-h-72 cursor-pointer overflow-hidden rounded-[2rem] border p-6 outline-none transition-transform duration-300 hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-blue-500/30 sm:p-8 ${className} ${
         dark
           ? "border-blue-400/80 bg-slate-950 text-white shadow-2xl shadow-blue-900/30 ring-4 ring-blue-500/10"
           : accent
@@ -177,11 +305,15 @@ function ServiceCard({
             {dark ? "Most complete · Labe Growth" : tag}
           </span>
         </div>
-        <div className="mt-auto pt-12">
-          <h3 className="text-2xl font-black tracking-tight">{title}</h3>
+        <div className="mt-10 flex flex-1 flex-col">
+          <div className="md:flex md:min-h-24 md:flex-col md:justify-end">
+            <h3 className="text-2xl font-black tracking-tight">{title}</h3>
+          </div>
           <p
             className={`mt-3 max-w-xl leading-7 ${
               dark || accent ? "text-white/70" : "text-slate-600"
+            } ${
+              expandableOnDesktop && !detailsExpanded ? "md:hidden" : ""
             }`}
           >
             {description}
@@ -202,22 +334,38 @@ function ServiceCard({
               ))}
             </div>
           )}
-          <span
-            className={`mt-5 inline-flex items-center text-sm font-black ${
-              dark || accent ? "text-white" : "text-blue-700"
-            }`}
-          >
-            View price
-            <span
-              aria-hidden="true"
-              className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+          <div className="mt-auto flex items-center justify-between gap-4 pt-6">
+            {expandableOnDesktop && (
+              <button
+                type="button"
+                onClick={onToggleDetails}
+                aria-expanded={detailsExpanded}
+                className="hidden items-center gap-1.5 text-sm font-black text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30 md:inline-flex"
+              >
+                {detailsExpanded ? "Less" : "More"}
+                <span aria-hidden="true" className="text-base leading-none">
+                  {detailsExpanded ? "−" : "+"}
+                </span>
+              </button>
+            )}
+            <a
+              href={href}
+              className={`inline-flex shrink-0 items-center text-sm font-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30 ${
+                dark || accent ? "text-white" : "text-blue-700"
+              } ${expandableOnDesktop ? "ml-auto" : ""}`}
             >
-              →
-            </span>
-          </span>
+              View price
+              <span
+                aria-hidden="true"
+                className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
+          </div>
         </div>
       </div>
-    </a>
+    </article>
   );
 }
 
@@ -235,6 +383,18 @@ function ServiceIcon({ name }: { name: IconName }) {
         <path d="m19 15 .7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z" />
       </>
     ),
+    mail: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2.5" />
+        <path d="m4 7 8 6 8-6" />
+      </>
+    ),
+    pin: (
+      <>
+        <path d="M19 10.5c0 5.2-7 10.5-7 10.5S5 15.7 5 10.5a7 7 0 1 1 14 0Z" />
+        <circle cx="12" cy="10.5" r="2.25" />
+      </>
+    ),
     search: (
       <>
         <circle cx="10.5" cy="10.5" r="6.5" />
@@ -247,15 +407,20 @@ function ServiceIcon({ name }: { name: IconName }) {
         <path d="m7 14 1 6h4l-1.5-5" />
       </>
     ),
-    flow: (
-      <>
-        <rect x="3" y="3" width="6" height="6" rx="2" />
-        <rect x="15" y="15" width="6" height="6" rx="2" />
-        <path d="M9 6h3a5 5 0 0 1 5 5v4M15 18h-3a5 5 0 0 1-5-5V9" />
-      </>
-    ),
     phone: (
       <path d="M7.2 3.5H4.5A1.5 1.5 0 0 0 3 5c0 8.8 7.2 16 16 16a1.5 1.5 0 0 0 1.5-1.5v-2.7l-4.3-1.4-1.1 2.1a13 13 0 0 1-8.6-8.6l2.1-1.1-1.4-4.3Z" />
+    ),
+    chat: (
+      <>
+        <path d="M4.5 5.5A3.5 3.5 0 0 1 8 2h8a3.5 3.5 0 0 1 3.5 3.5v5A3.5 3.5 0 0 1 16 14h-4.5L7 18v-4H8A3.5 3.5 0 0 1 4.5 10.5v-5Z" />
+        <path d="M9 8h.01M12 8h.01M15 8h.01" />
+      </>
+    ),
+    card: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2.5" />
+        <path d="M3 10h18M7 15h4" />
+      </>
     ),
   };
 

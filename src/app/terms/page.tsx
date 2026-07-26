@@ -106,12 +106,12 @@ const sections = [
       <>
         <p>
           Labe Launch and Labe Growth include a website going live within 48
-          hours. Labe Growth includes the complete agreed automation system
-          within 5 business days. These priority periods apply only when the
-          package setup price and selected one-off add-ons due at checkout are
-          paid in full. They begin after we receive that payment, the required
-          content, instructions, access, and approval to start. They exclude
-          time spent waiting for your feedback, materials, or approvals.
+          hours. Growth inclusions and selected add-ons are completed within 5
+          business days. These priority periods apply only when the package
+          setup price and selected one-off add-ons due at checkout are paid in
+          full. They begin after we receive that payment, the required content,
+          instructions, access, and approval to start. They exclude time spent
+          waiting for your feedback, materials, or approvals.
         </p>
         <p>
           If we agree to accept a deposit, instalments, or staged payments, the
@@ -126,6 +126,13 @@ const sections = [
           verification, and other third-party add-ons may require additional
           approval or processing time. If the agreed scope requires a different
           timeframe, we will state that before work begins.
+        </p>
+        <p>
+          After successful payment, we send a welcome email with a link to our
+          onboarding questionnaire. The questionnaire helps us collect the
+          information needed to begin your build. Your delivery timeframe starts
+          only once we have received the required onboarding details and approval
+          to start.
         </p>
       </>
     ),
@@ -161,17 +168,24 @@ const sections = [
         </p>
         <p>
           The package and add-on prices displayed at checkout apply to that
-          order. Labe Growth is currently charged as a $2,999 setup payment and
-          a $149 monthly service beginning after a 7-day setup period. Labe&apos;s
-          AI receptionist setup and standard ongoing configuration are included
-          with an active Growth service. Labe currently uses Hey Jodie for this
+          order. Labe Launch is currently $1,999 once. With Launch, custom
+          business email, a professional email template, and email automation
+          are currently $599; Google Business Profile setup and optimisation is
+          currently $349; and AI receptionist setup is currently $499. Labe
+          Growth is currently charged as a $2,999 setup payment and a $149
+          monthly service beginning after a 7-day setup period. Growth includes
+          custom business email, a professional email template, email
+          automation, Google Business Profile setup and optimisation, AI
+          receptionist setup, AI live chat setup, and Stripe payment setup.
+          Labe&apos;s AI receptionist setup and standard ongoing configuration are
+          included with an active Growth service. Labe currently uses Hey Jodie for this
           service unless another provider is requested or agreed. We may use a
           different suitable provider for new customers and may recommend or
           arrange a provider change for an existing customer where reasonably
           necessary. We will explain any material change, obtain the
           customer&apos;s approval before migrating a customer-controlled
           account, and confirm any changed provider fees before proceeding.
-          With Launch, the AI receptionist setup is currently $299 once. In
+          With Launch, the AI receptionist setup is currently $499 once. In
           both cases, the customer creates or authorises the provider account
           and pays the provider&apos;s subscription, usage charges, taxes, and
           other fees directly. Advertising spend and any usage above an agreed
@@ -183,9 +197,21 @@ const sections = [
           processor, Stripe, to charge the payment method used at checkout $149
           each month, beginning 7 days after the setup payment, until the
           recurring service is cancelled in accordance with these terms. If a
-          recurring payment fails, we may ask you to update the payment method,
-          retry the charge, and, after reasonable notice, pause the recurring
-          features until payment is brought up to date.
+          recurring payment fails, Stripe may retry the charge and we will send
+          you a reminder with a way to update your payment method or contact us.
+          We will give you at least 14 days from our first written reminder to
+          resolve the payment before pausing Growth-only support, upkeep, or
+          managed features. We will not remove your website or customer-owned
+          accounts merely because a recurring payment is overdue.
+        </p>
+        <p>
+          If a Growth payment remains unpaid for 30 days after its due date, we
+          may begin the cancellation and wind-down process after written notice.
+          We will explain which managed services will be paused or ended, provide
+          reasonable handover assistance, and help identify any provider-side
+          steps needed to keep or cancel customer-owned accounts. Third-party
+          charges may continue until the customer cancels them with the relevant
+          provider.
         </p>
         <p>
           We will give reasonable advance notice of any proposed change to the
@@ -213,6 +239,14 @@ const sections = [
           providers, booking systems, and other integrations.
         </p>
         <p>
+          Where practical, third-party accounts are created in, or transferred
+          to, your business name and under your control. This includes your
+          domain, email, Google Business Profile, Stripe, AI receptionist, AI
+          chat, email automation, and advertising accounts. You are responsible
+          for provider charges on those accounts unless we agree otherwise in
+          writing.
+        </p>
+        <p>
           Those services are also governed by their providers&apos; terms,
           availability, pricing, and privacy practices. We are not responsible
           for a third-party change, suspension, outage, or decision outside our
@@ -225,7 +259,9 @@ const sections = [
           business information accurate, and using the service lawfully. Labe
           may assist with configuration but does not control the provider&apos;s
           pricing, service availability, call quality, features, or data
-          handling.
+          handling. Separate telco costs may apply for phone numbers, call
+          forwarding, or routing. We will explain any expected setup costs
+          before proceeding.
         </p>
       </>
     ),
@@ -271,6 +307,11 @@ const sections = [
           deliverables created exclusively for your business. You own and may
           use, operate, publish, and modify the completed website, subject to
           the exclusions below.
+        </p>
+        <p>
+          This means your finished website, brand content, and materials created
+          specifically for your business are yours. An active Growth service is
+          ongoing support and managed upkeep; it is not a rental of your website.
         </p>
         <p>
           Labe retains ownership of its pre-existing materials, reusable
@@ -321,6 +362,12 @@ const sections = [
           provider account. We will help identify those steps, but provider
           charges can continue until the provider-side cancellation takes
           effect.
+        </p>
+        <p>
+          Cancelling Growth does not remove ownership of your website or
+          customer-owned accounts. At the end of the paid period, ongoing Labe
+          support, managed upkeep, and Growth-only features may end unless we
+          agree otherwise in writing.
         </p>
         <p>
           If you cancel a project after work has begun, you must pay for work
@@ -491,7 +538,7 @@ export default function TermsPage() {
                 Labe.
               </p>
               <p className="mt-5 text-sm font-semibold text-slate-500">
-                Effective 25 July 2026
+                Effective 27 July 2026
               </p>
 
               <div className="mt-12 space-y-10">

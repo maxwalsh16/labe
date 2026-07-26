@@ -3,18 +3,18 @@ import { Container } from "@/components/ui/Container";
 const steps = [
   {
     number: "01",
-    title: "Send us the basics",
+    title: "Complete your onboarding",
     description:
-      "Choose a package and send your logo, services, contact details, and any photos you want us to use.",
-    note: "One simple questionnaire",
+      "After payment, check your inbox for your onboarding link and send your logo, services, contact details, and any photos you want us to use.",
+    note: "One simple questionnaire in your welcome email",
     icon: "brief",
   },
   {
     number: "02",
     title: "We build and connect everything",
     description:
-      "We write the page, arrange the content, customise the design, connect your enquiries, and test everything on phones and computers.",
-    note: "Your agreed build timeline begins",
+      "We turn your details into a polished website, tailor it to your business, connect the essentials, and test it on every screen.",
+    note: "Your build timeline begins",
     icon: "build",
   },
   {
@@ -96,14 +96,14 @@ export function Process() {
 
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 text-center">
           <p className="text-xs leading-5 text-slate-400">
-            Your website goes live within 48 hours, with Growth automation
-            completed within 5 business days. These priority timelines apply
-            when the package setup price and selected one-off add-ons are paid
-            in full. They begin once all required content, access, and approval
-            to start have been received. Deposit or staged-payment projects
-            enter the next available waiting-list position. Time awaiting
-            client feedback is outside those windows; third-party add-ons may
-            receive a separate timeline.
+            Your website goes live within 48 hours, with Growth inclusions and
+            selected add-ons completed within 5 business days. These priority
+            timelines apply when the package setup price and selected one-off
+            add-ons are paid in full. They begin once all required content,
+            access, and approval to start have been received. Deposit or
+            staged-payment projects enter the next available waiting-list
+            position. Time awaiting client feedback is outside those windows;
+            third-party add-ons may receive a separate timeline.
           </p>
         </div>
       </Container>

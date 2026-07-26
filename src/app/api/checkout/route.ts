@@ -15,6 +15,8 @@ type CheckoutPayload = {
 };
 
 const validAddOns = [
+  "business_email",
+  "google_business_profile",
   "google_ads",
   "meta_ads",
   "ads_bundle",
@@ -146,7 +148,7 @@ export async function POST(request: Request) {
         {
           price_data: {
             currency: "aud",
-            unit_amount: 149900,
+            unit_amount: 199900,
             product_data: {
               name: "Labe Launch",
               description:
@@ -171,11 +173,31 @@ export async function POST(request: Request) {
     );
   }
 
+  if (!isGrowth && addOns.includes("business_email")) {
+    lineItems.push(
+      oneTimeAddOn(
+        "Business email, template & automation — setup",
+        59900,
+        "Professional email setup, a custom professional email template, and automated email configuration. Email provider plan is paid separately by the customer.",
+      ),
+    );
+  }
+
+  if (!isGrowth && addOns.includes("google_business_profile")) {
+    lineItems.push(
+      oneTimeAddOn(
+        "Google Business Profile — setup and optimisation",
+        34900,
+        "Google Business Profile setup or optimisation for local visibility.",
+      ),
+    );
+  }
+
   if (!isGrowth && addOns.includes("ai_receptionist")) {
     lineItems.push(
       oneTimeAddOn(
         "AI receptionist — setup",
-        29900,
+        49900,
         "Initial AI receptionist setup and configuration. The provider subscription is paid separately by the customer.",
       ),
     );
@@ -213,6 +235,18 @@ export async function POST(request: Request) {
             ? "AI receptionist setup included; provider subscription paid separately"
             : addOns.includes("ai_receptionist")
               ? "Paid AI receptionist setup; provider subscription paid separately"
+              : "Not selected",
+        business_email:
+          isGrowth
+            ? "Business email, custom professional email template, and automation included with Growth; provider plan paid separately"
+            : addOns.includes("business_email")
+              ? "Paid business email, custom professional email template, and automation setup; provider plan paid separately"
+              : "Not selected",
+        google_business_profile:
+          isGrowth
+            ? "Google Business Profile setup and optimisation included with Growth"
+            : addOns.includes("google_business_profile")
+              ? "Paid Google Business Profile setup and optimisation"
               : "Not selected",
         name,
         business,

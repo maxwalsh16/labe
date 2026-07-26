@@ -38,7 +38,8 @@ const sections = [
           <li>your website or social media page;</li>
           <li>
             details you provide about your business, project, services, and
-            enquiries;
+            enquiries, including onboarding questionnaire responses and files
+            you choose to upload;
           </li>
           <li>
             the package and add-ons you select, transaction identifiers,
@@ -74,8 +75,9 @@ const sections = [
       <>
         <p>
           We generally collect information directly from you when you submit
-          our contact or checkout form, use our AI chat assistant, email or
-          call us, engage us for services, or otherwise communicate with us.
+          our contact or checkout form, complete our onboarding questionnaire,
+          use our AI chat assistant, email or call us, engage us for services,
+          or otherwise communicate with us.
           Payment and subscription information is also provided to us by our
           payment processor. We may collect limited technical information
           automatically when you use our website.
@@ -101,6 +103,10 @@ const sections = [
             summaries, and route enquiries to the appropriate person;
           </li>
           <li>prepare proposals, provide services, and manage projects;</li>
+          <li>
+            send service emails, including payment confirmations, onboarding
+            links, project updates, and support communications;
+          </li>
           <li>
             process payments, administer subscriptions, issue receipts, prevent
             fraud, and maintain transaction records;
@@ -265,8 +271,10 @@ const sections = [
     title: "11. Marketing communications",
     content: (
       <p>
-        You can ask us to stop sending marketing communications at any time by
-        using the unsubscribe option in the message or emailing{" "}
+        We send marketing communications only where you have consented or where
+        otherwise permitted by law. You can ask us to stop receiving marketing
+        communications at any time by using the unsubscribe option in the
+        message or emailing{" "}
         <a href="mailto:hello@labe.com.au">hello@labe.com.au</a>. We may still
         send service-related messages where necessary.
       </p>
@@ -358,7 +366,7 @@ export default function PrivacyPage() {
                 and how we look after it.
               </p>
               <p className="mt-5 text-sm font-semibold text-slate-500">
-                Effective 25 July 2026
+                Effective 27 July 2026
               </p>
 
               <div className="mt-12 space-y-10">
