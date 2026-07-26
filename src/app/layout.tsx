@@ -31,8 +31,11 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: [{ url: "/icon", type: "image/png", sizes: "64x64" }],
-    shortcut: "/icon",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/icon", type: "image/png", sizes: "64x64" },
+    ],
+    shortcut: "/favicon.svg",
     apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
   },
   openGraph: {
