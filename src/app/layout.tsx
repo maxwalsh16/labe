@@ -22,6 +22,9 @@ const labeDisplay = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Labe — Modern websites and practical AI solutions",
     template: "%s | Labe",
@@ -61,12 +64,47 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${siteConfig.url}/#business`,
+    name: siteConfig.legalName,
+    alternateName: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/icon`,
+    image: `${siteConfig.url}/opengraph-image`,
+    description: siteConfig.description,
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      ...siteConfig.address,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "South Australia",
+    },
+    sameAs: [
+      "https://www.facebook.com/share/19ENGSTuSX",
+      "https://www.instagram.com/labe.labs",
+      "https://x.com/labe_labs",
+      "https://www.linkedin.com/in/max-walsh-a4a594424",
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${labeDisplay.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <ChatAgentProvider>{children}</ChatAgentProvider>
       </body>
     </html>
