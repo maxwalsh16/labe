@@ -10,6 +10,7 @@ import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
 import { StraightforwardPromise } from "@/components/sections/StraightforwardPromise";
+import { WhyNow } from "@/components/sections/WhyNow";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Services />
         <Benefits />
         <ConversionSimulator />
+        <WhyNow />
         <Pricing />
         <Process />
         <Faq />

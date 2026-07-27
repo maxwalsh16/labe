@@ -4,21 +4,21 @@ import { Container } from "@/components/ui/Container";
 const workflowSteps = [
   {
     number: "01",
-    title: "We get to know your business",
+    title: "We learn how you work",
     description:
-      "How you price, quote, book, and decide which enquiries are worth your time.",
+      "Your jobs, pricing, customer questions, and what needs to happen before an enquiry is worth your time.",
   },
   {
     number: "02",
-    title: "Customers and AI do the groundwork",
+    title: "Your setup handles the legwork",
     description:
-      "Clear answers, useful details, and the right next step are handled before you need to get involved.",
+      "Your website and AI give clear answers, collect the right details, and point customers towards the right next step.",
   },
   {
     number: "03",
-    title: "You take it from there",
+    title: "You step in when it matters",
     description:
-      "Spend less time chasing enquiries and more time quoting, closing, and getting jobs done.",
+      "Less time chasing and explaining. More time quoting, closing, and doing the work that pays.",
   },
 ] as const;
 
@@ -48,18 +48,19 @@ export function Benefits() {
               Built around how you operate
             </p>
             <h3 className="mt-3 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 sm:text-4xl">
-              Stay ahead without having to become a tech expert.
+              Your business, understood.
             </h3>
             <p className="mt-5 max-w-xl text-pretty leading-7 text-slate-600">
-              Customer expectations are changing quickly. Businesses that are
-              easy to find, easy to deal with, and quick to respond are the
-              ones that stand out.
+              Before we build anything, we learn how your business works: how
+              you quote, what you need from customers before you can start the
+              job, and what is
+              taking too much time out of your day.
             </p>
             <p className="mt-4 max-w-xl text-pretty leading-7 text-slate-600">
-              Labe helps make sure yours is one of them. We get to know how
-              you price, quote, book, and follow up, then tailor your website,
-              AI, and automated follow-up around it. We handle the setup and
-              show you how it works, so you can keep focusing on the work.
+              Then we shape your website and AI around you. Customers get the
+              right information, share useful details, and come to you ready
+              for the next step—so you can spend more time on the work that
+              pays.
             </p>
           </div>
 
@@ -83,8 +84,7 @@ export function Benefits() {
               </div>
             ))}
             <p className="rounded-2xl bg-blue-600 px-5 py-4 text-sm font-black leading-6 text-white shadow-lg shadow-blue-600/20">
-              Give customers a reason to choose you first—without adding
-              another job to your day.
+              Less admin. More time for the work that pays.
             </p>
           </div>
         </div>

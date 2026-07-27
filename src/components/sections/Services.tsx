@@ -162,7 +162,7 @@ export function Services() {
           </div>
         </div>
 
-        <div className="relative mt-7 overflow-hidden rounded-[2rem] border border-blue-200 bg-blue-50/60 p-5 sm:p-8">
+        <div className="relative mt-7 overflow-hidden rounded-[2rem] border border-blue-200 bg-blue-50/60 px-5 pb-5 pt-11 sm:p-8">
           <div
             aria-hidden="true"
             className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"
