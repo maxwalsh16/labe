@@ -11,15 +11,21 @@ export function DashboardLogin() {
     event.preventDefault();
     setSending(true);
     setMessage("");
-    const response = await fetch("/api/dashboard/session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    });
-    const data = (await response.json()) as { message?: string };
-    if (response.ok) window.location.reload();
-    else {
-      setMessage(data.message || "Please try again.");
+    try {
+      const response = await fetch("/api/dashboard/session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
+      if (response.ok) {
+        window.location.reload();
+        return;
+      }
+      setMessage(data.message || "The dashboard could not sign in. Please try again.");
+    } catch {
+      setMessage("The dashboard could not sign in. Please check your connection and try again.");
+    } finally {
       setSending(false);
     }
   }
@@ -29,7 +35,7 @@ export function DashboardLogin() {
       <form onSubmit={signIn} className="mx-auto w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.06] p-7 shadow-2xl backdrop-blur sm:p-10">
         <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-300">Labe operations</p>
         <h1 className="mt-3 text-4xl font-black tracking-[-0.05em]">Your project desk.</h1>
-        <p className="mt-4 leading-7 text-slate-300">Private access for Max only. Sign in to see today&apos;s work, project deadlines, and customer details.</p>
+        <p className="mt-4 leading-7 text-slate-300">Private access to your projects, deadlines, and customer details.</p>
         <label className="mt-8 block text-sm font-bold text-slate-200">
           Dashboard password
           <input

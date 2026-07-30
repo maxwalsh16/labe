@@ -19,12 +19,20 @@ export async function POST(request: Request) {
     return Response.json({ message: "That password is not right." }, { status: 401 });
   }
 
-  const response = Response.json({ ok: true });
-  response.headers.append(
-    "Set-Cookie",
-    `${dashboardCookieName()}=${createDashboardSession()}; Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000${process.env.NODE_ENV === "production" ? "; Secure" : ""}`,
-  );
-  return response;
+  try {
+    const response = Response.json({ ok: true });
+    response.headers.append(
+      "Set-Cookie",
+      `${dashboardCookieName()}=${createDashboardSession()}; Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000${process.env.NODE_ENV === "production" ? "; Secure" : ""}`,
+    );
+    return response;
+  } catch (error) {
+    console.error("Dashboard sign-in configuration error", error);
+    return Response.json(
+      { message: "Dashboard sign-in is not fully configured yet. Check that DASHBOARD_AUTH_SECRET is saved in Vercel and is at least 32 characters long." },
+      { status: 503 },
+    );
+  }
 }
 
 export async function DELETE() {
