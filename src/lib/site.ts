@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Labe",
   legalName: "Labe Labs",
-  url: "https://labe.com.au",
+  url: "https://www.labe.com.au",
   email: "hello@labe.com.au",
   phone: "+61414785829",
   address: {

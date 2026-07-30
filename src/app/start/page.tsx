@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Start your Labe project",
   description:
     "Choose your Labe package, reserve a priority build position, and continue to secure Stripe checkout.",
+  robots: { index: false, follow: false },
 };
 
 export default async function StartPage({
