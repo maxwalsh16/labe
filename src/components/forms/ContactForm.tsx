@@ -93,7 +93,7 @@ export function ContactForm() {
             required
           />
         </Field>
-        <Field label="Email address" id="email" required>
+        <Field label="Personal email address" id="email" required>
           <input
             className="form-control"
             id="email"
@@ -104,7 +104,7 @@ export function ContactForm() {
             required
           />
         </Field>
-        <Field label="Phone number" id="phone">
+        <Field label="Personal phone number" id="phone">
           <input
             className="form-control"
             id="phone"

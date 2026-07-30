@@ -443,7 +443,7 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
               required
             />
           </CheckoutField>
-          <CheckoutField label="Email address" id="checkout-email">
+          <CheckoutField label="Personal email address" id="checkout-email">
             <input
               className="form-control"
               id="checkout-email"
@@ -454,7 +454,7 @@ export function CheckoutForm({ initialPlan }: { initialPlan: Plan }) {
               required
             />
           </CheckoutField>
-          <CheckoutField label="Phone number" id="checkout-phone">
+          <CheckoutField label="Personal phone number" id="checkout-phone">
             <input
               className="form-control"
               id="checkout-phone"
